@@ -1,0 +1,58 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export declare type DateFilterPredicate = (d: Date) => boolean;
+export interface DatePickerConfigInterface {
+    bubble?: boolean;
+    disabled?: boolean;
+    displayErrors?: boolean;
+    name?: string;
+    facade?: boolean;
+    filterPredicate?: string | DateFilterPredicate;
+    helpText?: string;
+    id?: string | number;
+    label?: string;
+    min?: string | number | Date;
+    max?: string | number | Date;
+    metadata?: object;
+    noInitialValue?: boolean;
+    required?: boolean;
+    session?: boolean;
+    sessionPath?: string;
+    patch?: FieldItemPatchInterface;
+    tooltip?: string;
+    transformation?: string;
+    validators?: Array<Validators>;
+    value?: string | number;
+    options?: object;
+}
+export declare class DatePickerConfig implements SetControl {
+    bubble: boolean;
+    control: FormControl;
+    displayErrors: boolean;
+    disabled: boolean;
+    facade?: boolean;
+    filterPredicate: any;
+    helpText: string;
+    id: string;
+    label: string;
+    min: any;
+    max: any;
+    message: string;
+    metadata: any;
+    name: string;
+    noInitialValue: boolean;
+    patch: FieldItemPatchInterface;
+    required?: boolean;
+    session?: boolean;
+    sessionPath?: string;
+    showTooltip: boolean;
+    transformation: any;
+    tooltip: string;
+    value: any;
+    clearMessage: any;
+    triggerOnChange: any;
+    validators: any;
+    constructor(params?: DatePickerConfigInterface);
+    setControl(): void;
+}

@@ -1,0 +1,58 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export interface SwitchConfigInterface {
+    bubble?: boolean;
+    control?: FormControl;
+    disabled?: boolean;
+    displayErrors?: boolean;
+    empty?: 'ConvertEmptyToNull' | 'ConvertEmptyToZero';
+    facade?: boolean;
+    helpText?: string;
+    id?: number | string;
+    label?: string;
+    labelPosition?: string;
+    metadata?: object;
+    name?: string;
+    noInitialValue?: boolean;
+    patch?: FieldItemPatchInterface;
+    tabOnEnter?: boolean;
+    padding?: string;
+    session?: boolean;
+    sessionPath?: string;
+    textOverflow?: 'wrap' | 'ellipsis';
+    tooltip?: string;
+    validators?: Array<Validators>;
+    value?: boolean | number | string;
+}
+export declare class SwitchConfig implements SetControl {
+    bubble: boolean;
+    control: FormControl;
+    disabled: boolean;
+    displayErrors: boolean;
+    empty?: 'ConvertEmptyToNull' | 'ConvertEmptyToZero';
+    facade: boolean;
+    helpText: string;
+    id: number | string;
+    label: string;
+    labelPosition: string;
+    message: string;
+    metadata: any;
+    noInitialValue: boolean;
+    name?: string;
+    patch: FieldItemPatchInterface;
+    padding: string;
+    session?: boolean;
+    sessionPath?: string;
+    setValue: any;
+    switchRef: any;
+    triggerOnChange: any;
+    tooltip: string;
+    toolTipDirection: string;
+    tabOnEnter: boolean;
+    textOverflow: string;
+    validators: any;
+    value: boolean | number | string;
+    constructor(params?: SwitchConfigInterface);
+    setControl(): void;
+}

@@ -1,0 +1,54 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export interface TimeConfigInterface {
+    bubble?: boolean;
+    control?: FormControl;
+    disabled?: boolean;
+    displayErrors?: boolean;
+    facade?: boolean;
+    helpText?: string;
+    interval: 1 | 5 | 10 | 15;
+    id?: string | number;
+    label?: string;
+    metadata?: object;
+    name?: string;
+    noInitialValue?: boolean;
+    patch?: FieldItemPatchInterface;
+    readonly?: boolean;
+    session?: boolean;
+    sessionPath?: string;
+    tooltip?: string;
+    time: 12 | 24;
+    transformation?: string;
+    validators?: Array<Validators>;
+    value?: string | number;
+}
+export declare class TimeConfig implements SetControl {
+    bubble: boolean;
+    control: any;
+    displayErrors: boolean;
+    disabled: boolean;
+    facade: boolean;
+    helpText: string;
+    id: string;
+    label: string;
+    message: string;
+    metadata: any;
+    name: string;
+    noInitialValue: boolean;
+    patch: FieldItemPatchInterface;
+    showTooltip: boolean;
+    readonly: boolean;
+    session?: boolean;
+    sessionPath?: string;
+    tooltip: string;
+    transformation: any;
+    triggerOnChange: any;
+    time: 12 | 24;
+    interval: 1 | 5 | 10 | 15;
+    value: string;
+    validators: any;
+    constructor(params?: TimeConfigInterface);
+    setControl(): void;
+}

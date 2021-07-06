@@ -1,0 +1,54 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemOptions, FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export interface SelectMultiConfigInterface {
+    bubble?: boolean;
+    column?: string;
+    control?: FormControl;
+    displayErrors?: boolean;
+    disabled?: boolean;
+    facade?: boolean;
+    helpText?: string;
+    id?: number | string;
+    label?: string;
+    metadata?: object;
+    minimal?: boolean;
+    noInitialValue?: boolean;
+    options?: FieldItemOptions;
+    patch?: FieldItemPatchInterface;
+    session?: boolean;
+    sessionPath?: string;
+    sort?: boolean;
+    tooltip?: string;
+    validators?: Array<Validators>;
+    value?: Array<number | string>;
+}
+export declare class SelectMultiConfig implements SetControl {
+    bubble: boolean;
+    clearMessage: any;
+    control: FormControl;
+    displayErrors: boolean;
+    disabled: boolean;
+    facade: boolean;
+    helpText: string;
+    id: any;
+    label: string;
+    minimal?: false;
+    metadata: any;
+    message: string;
+    noInitialValue: boolean;
+    name: string;
+    options?: FieldItemOptions;
+    patch: FieldItemPatchInterface;
+    route: any;
+    session?: boolean;
+    sessionPath?: string;
+    sort: false;
+    showTooltip: boolean;
+    tooltip: string;
+    triggerOnChange: CallableFunction;
+    validators: any;
+    value: any;
+    constructor(params?: SelectMultiConfigInterface);
+    setControl(): void;
+}

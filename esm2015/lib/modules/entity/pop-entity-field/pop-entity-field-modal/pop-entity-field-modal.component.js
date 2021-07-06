@@ -1,0 +1,43 @@
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { PopExtendDynamicComponent } from '../../../../pop-extend-dynamic.component';
+import { slideInOut } from '../../../../pop-common-animations.model';
+export class PopEntityFieldModalComponent extends PopExtendDynamicComponent {
+    constructor(dialog, data) {
+        super();
+        this.dialog = dialog;
+        this.data = data;
+        this.name = 'PopEntityFieldModalComponent';
+    }
+    ngOnInit() {
+        super.ngOnInit();
+    }
+    onFormSubmit() {
+        if (this.dom.state.validated) {
+        }
+    }
+    onFormCancel() {
+        this.dom.state.loaded = false;
+        this.dom.setTimeout(`close-modal`, () => {
+            this.dialog.close(-1);
+        }, 500);
+    }
+    ngOnDestroy() {
+        super.ngOnDestroy();
+    }
+}
+PopEntityFieldModalComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'lib-pop-entity-field-modal',
+                template: "<div *ngIf=\"dom.state.loaded\" [@slideInOut]>\n  <div class=\"pop-field-dialog-title\" >{{data.field.name}}</div>\n  <div class=\"pop-field-dialog-fields\">\n    <!--<form [formGroup]=\"ui.form\" (keydown.enter)=\"onEnterPress($event)\" (ngSubmit)=\"onFormSubmit()\" [className]=\"dom.state.pending ? 'in-dialog-field-lock' : ''\">-->\n      <!--<lib-group [ngClass]=\"{'in-dialog-disabled': dom.state.pending}\" [config]=\"config\" (events)=\"onBubbleEvent($event);\"></lib-group>-->\n    <!--</form>-->\n  </div>\n  <div class=\"pop-field-dialog-buttons\">\n    <button class=\"pop-field-dialog-cancel\" mat-raised-button (click)=\"onFormCancel();\" [disabled]=\"dom.state.pending\">\n      Cancel\n    </button>\n    <button class=\"pop-field-dialog-other\" mat-raised-button color=\"accent\" (click)=\"onFormSubmit()\" [disabled]=\"!dom.state.validated || dom.state.pending\">\n      <span *ngIf=\"!dom.state.pending\">OK</span>\n      <div *ngIf=\"dom.state.pending\">\n        <mat-spinner diameter=\"20\"></mat-spinner>\n      </div>\n    </button>\n  </div>\n  <div class=\"pop-field-dialog-message-layout\" *ngIf=\"dom.state.success || dom.error?.message\" [@slideInOut]>\n    <div *ngIf=\"dom.state.success\" class=\"pop-field-dialog-success\">{{dom.state.success}}</div>\n    <div *ngIf=\"dom.error.message\" class=\"pop-field-dialog-errors\">{{dom.error.message}}</div>\n  </div>\n</div>\n",
+                animations: [
+                    slideInOut
+                ],
+                styles: [".import-field-item-container{position:relative;min-height:var(--field-min-height);max-width:var(--field-max-width);margin:var(--field-margin-l)}.import-field-item-container-expansion{position:relative;width:100%;height:100%;box-sizing:border-box!important;-moz-box-sizing:border-box}.import-field-item-tooltip-msg{position:absolute;display:block;bottom:50px;width:100%;right:-10px;left:-10px;background:var(--field-tooltip-bg);border-radius:var(--field-tooltip-radius);padding:var(--field-tooltip-padding);color:var(--field-tooltip-color);height:-webkit-fit-content;height:-moz-fit-content;height:fit-content;overflow:hidden;text-align:center;z-index:2}.import-field-item-container .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-end,.import-field-item-container .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-gap,.import-field-item-container .mat-form-field-appearance-outline .mat-form-field-outline-thick .mat-form-field-outline-start{border-width:1px}.import-field-item-container .mat-form-field-appearance-outline .mat-form-field-outline:not(:focus){background-color:var(--background-base)}:host{position:relative;display:block;min-width:400px}:host .pop-field-dialog-title{font-weight:500;text-align:center;margin-bottom:10px}:host .pop-field-dialog-fields{position:relative;display:block;width:100%;margin-bottom:10px}:host .pop-field-dialog-fields .pop-field-dialog-field{margin-bottom:10px}:host .pop-field-dialog-fields .pop-field-dialog-field-lock{opacity:90%}:host .pop-field-dialog-fields .pop-field-dialog-field-spinner{position:absolute;left:50%;top:50%;margin-left:-22px;margin-top:-40px}:host .pop-field-dialog-buttons{margin-top:20px;margin-bottom:10px;display:flex;justify-content:space-between}:host .pop-field-dialog-buttons .pop-field-dialog-cancel{order:1;display:flex;align-items:center;justify-content:center;min-height:35px;min-width:100px}:host .pop-field-dialog-buttons .pop-field-dialog-other{order:2;display:flex;align-items:center;justify-content:center;margin-left:10px;min-width:100px;min-height:35px}:host .pop-field-dialog-errors{color:var(--warn);text-align:center;word-break:break-word}:host .pop-field-dialog-success{color:var(--success);text-align:center;word-break:break-word}:host .pop-field-dialog-message-layout{display:flex;flex-direction:row;min-height:40px;align-items:center;justify-content:center;text-align:center}:host .pop-field-dialog-disabled{pointer-events:none}"]
+            },] }
+];
+PopEntityFieldModalComponent.ctorParameters = () => [
+    { type: MatDialogRef },
+    { type: undefined, decorators: [{ type: Inject, args: [MAT_DIALOG_DATA,] }] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicG9wLWVudGl0eS1maWVsZC1tb2RhbC5jb21wb25lbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9wb3AtY29tbW9uL3NyYy9saWIvbW9kdWxlcy9lbnRpdHkvcG9wLWVudGl0eS1maWVsZC9wb3AtZW50aXR5LWZpZWxkLW1vZGFsL3BvcC1lbnRpdHktZmllbGQtbW9kYWwuY29tcG9uZW50LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxTQUFTLEVBQUUsTUFBTSxFQUFxQixNQUFNLGVBQWUsQ0FBQztBQUNyRSxPQUFPLEVBQUUsZUFBZSxFQUFFLFlBQVksRUFBRSxNQUFNLDBCQUEwQixDQUFDO0FBQ3pFLE9BQU8sRUFBRSx5QkFBeUIsRUFBRSxNQUFNLDBDQUEwQyxDQUFDO0FBQ3JGLE9BQU8sRUFBRSxVQUFVLEVBQUUsTUFBTSx5Q0FBeUMsQ0FBQztBQVVyRSxNQUFNLE9BQU8sNEJBQTZCLFNBQVEseUJBQXlCO0lBSXpFLFlBQ1MsTUFBa0QsRUFDekIsSUFBUztRQUN6QyxLQUFLLEVBQUUsQ0FBQztRQUZELFdBQU0sR0FBTixNQUFNLENBQTRDO1FBQ3pCLFNBQUksR0FBSixJQUFJLENBQUs7UUFMcEMsU0FBSSxHQUFHLDhCQUE4QixDQUFDO0lBTzdDLENBQUM7SUFFRCxRQUFRO1FBQ04sS0FBSyxDQUFDLFFBQVEsRUFBRSxDQUFDO0lBQ25CLENBQUM7SUFJRCxZQUFZO1FBQ1YsSUFBSSxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxTQUFTLEVBQUU7U0FFN0I7SUFDSCxDQUFDO0lBR0QsWUFBWTtRQUNWLElBQUksQ0FBQyxHQUFHLENBQUMsS0FBSyxDQUFDLE1BQU0sR0FBRyxLQUFLLENBQUM7UUFDOUIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxVQUFVLENBQUMsYUFBYSxFQUFFLEdBQUcsRUFBRTtZQUN0QyxJQUFJLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQ3hCLENBQUMsRUFBRSxHQUFHLENBQUMsQ0FBQztJQUVWLENBQUM7SUFFRCxXQUFXO1FBQ1QsS0FBSyxDQUFDLFdBQVcsRUFBRSxDQUFDO0lBQ3RCLENBQUM7OztZQXpDRixTQUFTLFNBQUM7Z0JBQ1QsUUFBUSxFQUFFLDRCQUE0QjtnQkFDdEMsczRDQUFzRDtnQkFFdEQsVUFBVSxFQUFFO29CQUNWLFVBQVU7aUJBQ1g7O2FBQ0Y7OztZQVh5QixZQUFZOzRDQWtCakMsTUFBTSxTQUFDLGVBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQsIEluamVjdCwgT25EZXN0cm95LCBPbkluaXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IE1BVF9ESUFMT0dfREFUQSwgTWF0RGlhbG9nUmVmIH0gZnJvbSAnQGFuZ3VsYXIvbWF0ZXJpYWwvZGlhbG9nJztcbmltcG9ydCB7IFBvcEV4dGVuZER5bmFtaWNDb21wb25lbnQgfSBmcm9tICcuLi8uLi8uLi8uLi9wb3AtZXh0ZW5kLWR5bmFtaWMuY29tcG9uZW50JztcbmltcG9ydCB7IHNsaWRlSW5PdXQgfSBmcm9tICcuLi8uLi8uLi8uLi9wb3AtY29tbW9uLWFuaW1hdGlvbnMubW9kZWwnO1xuXG5AQ29tcG9uZW50KHtcbiAgc2VsZWN0b3I6ICdsaWItcG9wLWVudGl0eS1maWVsZC1tb2RhbCcsXG4gIHRlbXBsYXRlVXJsOiAnLi9wb3AtZW50aXR5LWZpZWxkLW1vZGFsLmNvbXBvbmVudC5odG1sJyxcbiAgc3R5bGVVcmxzOiBbJy4vcG9wLWVudGl0eS1maWVsZC1tb2RhbC5jb21wb25lbnQuc2NzcyddLFxuICBhbmltYXRpb25zOiBbXG4gICAgc2xpZGVJbk91dFxuICBdXG59KVxuZXhwb3J0IGNsYXNzIFBvcEVudGl0eUZpZWxkTW9kYWxDb21wb25lbnQgZXh0ZW5kcyBQb3BFeHRlbmREeW5hbWljQ29tcG9uZW50IGltcGxlbWVudHMgT25Jbml0LCBPbkRlc3Ryb3kge1xuICBwdWJsaWMgbmFtZSA9ICdQb3BFbnRpdHlGaWVsZE1vZGFsQ29tcG9uZW50JztcblxuXG4gIGNvbnN0cnVjdG9yKFxuICAgIHB1YmxpYyBkaWFsb2c6IE1hdERpYWxvZ1JlZjxQb3BFbnRpdHlGaWVsZE1vZGFsQ29tcG9uZW50PixcbiAgICBASW5qZWN0KE1BVF9ESUFMT0dfREFUQSkgcHVibGljIGRhdGE6IGFueSkge1xuICAgIHN1cGVyKCk7XG4gIH1cblxuICBuZ09uSW5pdCgpOiB2b2lkIHtcbiAgICBzdXBlci5uZ09uSW5pdCgpO1xuICB9XG5cblxuXG4gIG9uRm9ybVN1Ym1pdCgpe1xuICAgIGlmKCB0aGlzLmRvbS5zdGF0ZS52YWxpZGF0ZWQgKXtcblxuICAgIH1cbiAgfVxuXG5cbiAgb25Gb3JtQ2FuY2VsKCl7XG4gICAgdGhpcy5kb20uc3RhdGUubG9hZGVkID0gZmFsc2U7XG4gICAgdGhpcy5kb20uc2V0VGltZW91dChgY2xvc2UtbW9kYWxgLCAoKSA9PiB7XG4gICAgICB0aGlzLmRpYWxvZy5jbG9zZSgtMSk7XG4gICAgfSwgNTAwKTtcblxuICB9XG5cbiAgbmdPbkRlc3Ryb3koKTp2b2lke1xuICAgIHN1cGVyLm5nT25EZXN0cm95KCk7XG4gIH1cblxufVxuIl19

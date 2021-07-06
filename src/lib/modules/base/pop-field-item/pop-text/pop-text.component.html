@@ -1,6 +1,0 @@
-<div class="import-field-item-container pop-text-container" [style.padding.px]="config.padding" [ngClass]="{'pop-text-border': config.border, 'pop-text-header': config.header, 'pop-text-warning': config.warning, 'pop-text-ellipsis': config.textOverflow === 'ellipsis'}" *ngIf="dom.state.loaded">
-  <div class="import-flex-row import-flex-start-center">
-    <mat-icon *ngIf="config.warning" class="theme-error">warning_amber</mat-icon>
-    <div class="pop-text-value {{config.className}}" [innerHTML]="config.value"></div>
-  </div>
-</div>

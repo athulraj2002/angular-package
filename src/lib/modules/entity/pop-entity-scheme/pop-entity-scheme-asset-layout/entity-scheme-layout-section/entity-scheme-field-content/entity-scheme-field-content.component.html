@@ -1,6 +1,0 @@
-<div class="entity-scheme-asset-item-row" *ngFor="let entry of ui.entries;" [ngClass]="{'sw-disabled': entry.disabled}">
-  {{entry.name}}
-  <div class="entity-scheme-asset-trait-container">
-    <mat-icon class="entity-scheme-asset-trait-icon sw-pointer" *ngFor="let trait of entry.traits" matTooltip="{{trait.label}}" matTooltipPosition="above">{{trait.icon}}</mat-icon>
-  </div>
-</div>

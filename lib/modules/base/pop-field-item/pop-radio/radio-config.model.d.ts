@@ -1,0 +1,54 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemOption, FieldItemOptions, FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export interface RadioConfigInterface {
+    bubble?: boolean;
+    control?: FormControl;
+    disabled?: boolean;
+    displayErrors?: boolean;
+    emptyOption?: FieldItemOption;
+    facade?: boolean;
+    helpText?: string;
+    id?: number | string;
+    label?: string;
+    labelPosition?: string;
+    layout?: string;
+    metadata?: object;
+    name?: string;
+    noInitialValue?: boolean;
+    options?: FieldItemOptions;
+    patch?: FieldItemPatchInterface;
+    session?: boolean;
+    sessionPath?: string;
+    sort?: boolean;
+    validators?: Array<Validators>;
+    value?: boolean | string | number;
+}
+export declare class RadioConfig implements SetControl {
+    bubble: boolean;
+    control: FormControl;
+    clearMessage: any;
+    disabled: boolean;
+    displayErrors: boolean;
+    facade: boolean;
+    helpText: string;
+    id: number | string;
+    label: string;
+    labelPosition: string;
+    layout: string;
+    message: string;
+    metadata: any;
+    noInitialValue: boolean;
+    name: string;
+    options: FieldItemOptions;
+    patch: FieldItemPatchInterface;
+    reset?: boolean;
+    session?: boolean;
+    sessionPath?: string;
+    sort?: boolean;
+    triggerOnChange: any;
+    validators: any;
+    value?: boolean | string | number;
+    constructor(params?: RadioConfigInterface);
+    setControl(): void;
+}

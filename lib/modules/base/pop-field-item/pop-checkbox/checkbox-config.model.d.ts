@@ -1,0 +1,56 @@
+import { FormControl, Validators } from '@angular/forms';
+import { FieldItemOptions, FieldItemPatchInterface } from '../../../../pop-common.model';
+import { SetControl } from '../../../../pop-common-dom.models';
+export interface CheckboxConfigInterface {
+    align?: string;
+    bubble?: boolean;
+    control?: FormControl;
+    disabled?: boolean;
+    displayErrors?: boolean;
+    facade?: boolean;
+    helpText?: string;
+    id?: number | string;
+    label?: string;
+    labelPosition?: string;
+    metadata?: object;
+    name?: string;
+    noInitialValue?: boolean;
+    options?: FieldItemOptions;
+    patch?: FieldItemPatchInterface;
+    session?: boolean;
+    sessionPath?: string;
+    tabOnEnter?: boolean;
+    textOverflow?: 'wrap' | 'ellipsis';
+    validators?: Array<Validators>;
+    value?: number | boolean;
+}
+export declare class CheckboxConfig implements SetControl {
+    align: string;
+    bubble: boolean;
+    control: FormControl;
+    disabled: boolean;
+    displayErrors: boolean;
+    facade: boolean;
+    helpText: string;
+    id: number | string;
+    label: string;
+    labelPosition: string;
+    message: string;
+    metadata: any;
+    name: string;
+    noInitialValue: boolean;
+    options?: FieldItemOptions;
+    patch: any;
+    patchSuccess: any;
+    patchFail: any;
+    session?: boolean;
+    sessionPath?: string;
+    startPatch: any;
+    tabOnEnter: boolean;
+    toolTipDirection: string;
+    textOverflow: string;
+    value: number | boolean;
+    validators: any;
+    constructor(params?: CheckboxConfigInterface);
+    setControl(): void;
+}

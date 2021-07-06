@@ -1,7 +1,0 @@
-<mat-menu #menu="matMenu" >
-    <button *ngFor="let option of config.options" mat-menu-item (click)="onMenuClick(option)">
-        {{option.label}}
-    </button>
-</mat-menu>
-
-<div class="pcm-trigger-button" [matMenuTriggerFor]="menu" [ngStyle]="{'left.px': config.x, 'top.px': config.y}" ></div>

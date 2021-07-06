@@ -1,5 +1,0 @@
-<div *ngIf="dom.state.loaded" class="entity-tab-list-container" [style.height.px]="dom.height.inner">
-  <lib-pop-table #list *ngIf="table.config" [core]=core [config]="table.config" (events)="onTableEvent($event)"></lib-pop-table>
-</div>
-<lib-pop-field-item-group *ngIf="ui.actionModal" [config]="ui.actionModal" (close)="onActionModalClose()"></lib-pop-field-item-group>
-<lib-pop-errors *ngIf="dom.error?.message" [error]="dom.error"></lib-pop-errors>

@@ -22,5 +22,13 @@
   "allowedNonPeerDependencies": [
     "spacetime",
     "ngx-mask"
-  ]
+  ],
+  "main": "bundles/pop-common.umd.js",
+  "module": "fesm2015/pop-common.js",
+  "es2015": "fesm2015/pop-common.js",
+  "esm2015": "esm2015/pop-common.js",
+  "fesm2015": "fesm2015/pop-common.js",
+  "typings": "pop-common.d.ts",
+  "metadata": "pop-common.metadata.json",
+  "sideEffects": false
 }

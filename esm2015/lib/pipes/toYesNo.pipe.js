@@ -1,0 +1,10 @@
+import { Pipe } from '@angular/core';
+export class ToYesNoPipe {
+    transform(value) {
+        return value ? 'Yes' : 'No';
+    }
+}
+ToYesNoPipe.decorators = [
+    { type: Pipe, args: [{ name: 'toYesNo', pure: true },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidG9ZZXNOby5waXBlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvcG9wLWNvbW1vbi9zcmMvbGliL3BpcGVzL3RvWWVzTm8ucGlwZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUMsSUFBSSxFQUFnQixNQUFNLGVBQWUsQ0FBQztBQUdsRCxNQUFNLE9BQU8sV0FBVztJQUN0QixTQUFTLENBQUMsS0FBSztRQUNiLE9BQU8sS0FBSyxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQztJQUM5QixDQUFDOzs7WUFKRixJQUFJLFNBQUMsRUFBQyxJQUFJLEVBQUUsU0FBUyxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1BpcGUsIFBpcGVUcmFuc2Zvcm19IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuXG5AUGlwZSh7bmFtZTogJ3RvWWVzTm8nLCBwdXJlOiB0cnVlfSlcbmV4cG9ydCBjbGFzcyBUb1llc05vUGlwZSBpbXBsZW1lbnRzIFBpcGVUcmFuc2Zvcm0ge1xuICB0cmFuc2Zvcm0odmFsdWUpIHtcbiAgICByZXR1cm4gdmFsdWUgPyAnWWVzJyA6ICdObyc7XG4gIH1cbn1cbiJdfQ==
