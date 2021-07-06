@@ -1,6 +1,6 @@
 {
   "name": "pop-common",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "dependencies": {
     "ngx-mask": "11.1.5",
     "spacetime": "6.16.0",
