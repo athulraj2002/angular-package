@@ -1,0 +1,124 @@
+$width: 200px;
+
+.pop-date-container {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: var(--gap-s) 0;
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+
+
+}
+
+.date-feedback-container {
+  position: absolute;
+  top: var(--gap-xxs);
+  right: var(--gap-xxs);
+  width: var(--gap-m);
+  bottom: var(--gap-xxs);
+  display: flex;
+  padding-top: 2px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.date-clear-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 42px;
+  top: 13px;
+  z-index: 1;
+  font-size: 1em;
+}
+
+.date-toggle-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 24px;
+  top: 8px;
+  z-index: 1;
+
+  ::ng-deep .mat-icon-button {
+    line-height: 25px !important;
+  }
+  ::ng-deep button {
+    width: 25px;
+    height: 25px;
+    mat-icon {
+      font-size: .9em;
+    }
+  }
+}
+
+.date-error-icon {
+  position: relative;
+  pointer-events: all;
+  left: 4px;
+  ::ng-deep .mat-icon {
+    font-size: 1em !important;
+  }
+}
+
+.date-helper-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 67px;
+  pointer-events: all;
+  font-size: .8em;
+  top: 11px;
+  ::ng-deep .mat-icon {
+    font-size: .9em !important;
+  }
+}
+
+.date-ajax-spinner {
+  position: absolute;
+  z-index: 1;
+}
+
+.field-tooltip-msg {
+  position: absolute;
+  display: block;
+  bottom: 50px;
+  width: 100%;
+  right: -10px;
+  left: -10px;
+  background: #3D72EA !important;
+  border-radius: 0.25em;
+  padding: 0.75em;
+  z-index: 2;
+  color: white;
+  height: fit-content;
+  overflow: hidden;
+  text-align: center;
+}
+
+::ng-deep .expanded .mat-datepicker-content{
+  position: relative;
+  left: 200px;
+  border-radius: 0 !important;
+  height: 425px;
+  background: var(--background-base);
+  border-top: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+::ng-deep .mat-datepicker-content{
+
+  background: var(--background-base);
+  border: 1px solid lightgray;
+}

@@ -1,0 +1,54 @@
+.pop-widget-bar-container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100vh;
+  margin: 0;
+}
+
+.pop-widget-bar-open {
+  width: 255px;
+  transition: width 500ms;
+}
+
+.pop-widget-bar-closed {
+  width: 79px;
+  transition: width 500ms;
+  background-color: var(--background-main-menu);
+}
+
+.pop-widget-bar-layout {
+  overflow: hidden;
+}
+
+.pop-widget-bar-icon-container {
+  width: 79px;
+  position: relative;
+  display: block;
+  float: right;
+}
+
+.pop-widget-item {
+  width: 196px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  float: left;
+}
+
+.pop-widget-bar-toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  padding: 10px 30px 30px 26px;
+  margin: 0 0 30px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+  bottom: 0;
+  border-radius: 50%;
+
+  .mat-icon-button {
+    background-color: var(--bg-3);
+  }
+}
+

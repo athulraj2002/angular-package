@@ -1,0 +1,157 @@
+.entity-list-container {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 5px 25px 0 25px;
+  lib-pop-table {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 10px;
+  }
+}
+
+:host ::ng-deep tr {
+  height: 48px;
+  max-height: 48px;
+}
+
+:host ::ng-deep th, :host ::ng-deep td { // need the rows to always be the same height for pagination calculation
+  min-width: 50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  height: 48px;
+  max-height: 48px;
+}
+
+:host ::ng-deep th > .mat-sort-header-container {
+  display: flex;
+  min-width: 50px;
+}
+
+:host ::ng-deep .checkbox-column {
+  min-width: 25px !important;
+  width: 25px !important;
+  padding: 0 5px !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep td[class*="fk"], ::ng-deep th[class*="fk"] {
+  text-align: center !important;
+  justify-content: center;
+}
+
+:host ::ng-deep th[class*="fk"] > .mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep td[class*="id"], :host ::ng-deep th[class*="id"] {
+  text-align: center !important;
+  justify-content: center;
+}
+
+:host ::ng-deep th[class*="active"] > .mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep td[class*="active"], :host ::ng-deep th[class*="active"] {
+  text-align: center !important;
+  justify-content: center;
+}
+
+:host ::ng-deep th[class*="system"] > .mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep td[class*="system"], :host ::ng-deep th[class*="system"] {
+  text-align: center !important;
+  justify-content: center;
+}
+
+:host ::ng-deep th[class*="id"] > .mat-sort-header-container {
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+:host ::ng-deep td[class*="-name"], :host ::ng-deep th[class*="-name"] {
+  text-align: left !important;
+  padding-left: 20px !important;
+  max-width: 200px;
+}
+
+:host ::ng-deep th[class*="-name"] .mat-sort-header-container {
+  padding-left: 0 !important;
+  justify-content: left !important;
+  max-width: 500px;
+}
+
+:host ::ng-deep td[class*="-first"], :host ::ng-deep th[class*="-first"] {
+  text-align: left !important;
+  padding-left: 20px !important;
+}
+
+:host ::ng-deep th[class*="-first"] .mat-sort-header-container {
+  min-width: 50px !important;
+  padding-left: 0 !important;
+  justify-content: left !important;
+}
+
+:host ::ng-deep td[class*="-last"], :host ::ng-deep th[class*="-last"] {
+  text-align: left !important;
+  padding-left: 20px !important;
+}
+
+:host ::ng-deep th[class*="-last"] .mat-sort-header-container {
+  padding-left: 0 !important;
+  justify-content: left !important;
+}
+
+:host ::ng-deep td[class*="-display"], :host ::ng-deep th[class*="-display"] {
+  text-align: left !important;
+  padding-left: 20px !important;
+}
+
+:host ::ng-deep th[class*="-display"] .mat-sort-header-container {
+  padding-left: 0 !important;
+  justify-content: left !important;
+}
+
+:host ::ng-deep td[class*="-description"], :host ::ng-deep th[class*="-description"] {
+  text-align: left !important;
+  padding-left: 20px !important;
+  max-width: 500px;
+}
+
+:host ::ng-deep th[class*="-description"] .mat-sort-header-container {
+  padding-left: 0 !important;
+  justify-content: left !important;
+  max-width: 500px;
+}
+
+:host ::ng-deep td[class*="email"], :host ::ng-deep th[class*="email"] {
+  min-width: 50px !important;
+  text-align: left !important;
+  padding-left: 20px !important;
+}
+
+:host ::ng-deep th[class*="email"] .mat-sort-header-container {
+  min-width: 50px !important;
+  padding-left: 0 !important;
+  justify-content: left !important;
+}
+
+.entity-list-spinner-box{
+  height: 75vh;
+}
+
+
+
+

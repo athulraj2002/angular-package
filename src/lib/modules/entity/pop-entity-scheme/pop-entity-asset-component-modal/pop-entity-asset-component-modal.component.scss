@@ -1,0 +1,100 @@
+.profile-scheme-asset-container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-width: 700px;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.profile-scheme-asset-content {
+  position: relative;
+  display: flex;
+  width:100%;
+  height: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.profile-scheme-asset-section-wrapper {
+  flex: 1;
+  border: 1px solid var(--border);
+  width: 300px;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+
+.profile-scheme-asset-item:hover {
+  background-color: var(--darken02);
+}
+
+.profile-scheme-asset-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding: 0 5px 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1em;
+  font-weight: bold;
+  clear: both;
+  box-sizing: border-box;
+}
+
+.profile-scheme-asset-item { // the div that repeats for each field item
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--border);
+  box-sizing: border-box;
+  padding-left: 5px;
+  -moz-box-sizing: border-box;
+}
+
+.profile-scheme-asset-item-active-selector { // div that contains the checkbox that activates/deactivates a field item form set
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-scheme-asset-active-selection { // the active field item that has been selected
+  padding-left: 0px !important;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: var(--primary);
+}
+
+
+.profile-scheme-asset-item-label-name { // div that contains the name for the field item
+  width: 75%;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-scheme-asset-item-label-helper { // div that contains the helper icon for the field item
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  //background: blue;
+  min-height: 40px;
+}
+
+.profile-scheme-asset-item-helper-icon {
+  margin-top: 10px;
+  margin-right: 2px;
+  width: 20px;
+  height: 20px;
+  font-size: .7em;
+  z-index: 2;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "pop-common",
+  "version": "0.0.26",
+  "dependencies": {
+    "ngx-mask": "11.1.5",
+    "spacetime": "6.16.0",
+    "tslib": "2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/animations": "12.0.2",
+    "@angular/common": "12.0.2",
+    "@angular/compiler": "12.0.2",
+    "@angular/core": "12.0.2",
+    "@angular/forms": "12.0.2",
+    "@angular/material": "12.0.2",
+    "@angular/platform-browser": "12.0.2",
+    "@angular/platform-browser-dynamic": "12.0.2",
+    "@angular/router": "12.0.2",
+    "rxjs": "6.6.0",
+    "zone.js": "0.11.4"
+  },
+  "allowedNonPeerDependencies": [
+    "spacetime",
+    "ngx-mask"
+  ]
+}

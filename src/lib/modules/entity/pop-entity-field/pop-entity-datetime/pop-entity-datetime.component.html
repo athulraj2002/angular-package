@@ -1,0 +1,18 @@
+<div class="pop-entity-datetime-field pop-datetime-container" [ngClass]="{'pop-datetime-container-wrapper': field.options.legend}">
+  <div *ngIf="field.options.legend" class="pop-datetime-container-legend">{{field.name}}</div>
+  <div *ngIf="dom.state.row1.visible" class="pop-datetime-row-container"
+       [ngClass]="{'pop-datetime-first-row': dom.state.row1.first}">
+    <div *ngIf="field.items['date']" class="pop-datetime-date-wrapper">
+      <lib-pop-date [config]="field.items['date']" (events)="handleDateEvent($event);"></lib-pop-date>
+    </div>
+    <div *ngIf="field.items['time']" class="pop-datetime-time-wrapper">
+      <lib-pop-time [config]="field.items['time']" (events)="handleTimeEvent($event);"></lib-pop-time>
+    </div>
+  </div>
+  <div class="pop-datetime-row-container">
+    <div *ngIf="field.items['timezone']" class="pop-datetime-time-zone-wrapper">
+      <lib-pop-select [config]="field.items['timezone']"></lib-pop-select>
+    </div>
+    <lib-pop-input [config]="field.items['datetime']" (events)="handleEvent($event);"></lib-pop-input>
+  </div>
+</div>

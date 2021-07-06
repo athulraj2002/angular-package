@@ -1,0 +1,121 @@
+<div class="pop-entity-phone-field import-field-container">
+  <div *ngFor="let dataKey of field.data_keys">
+    <div *ngIf="field.items[dataKey].config; let items;">
+      <div *ngIf="dom.state.loaded && ui.asset[dataKey]; let asset">
+        <div *ngIf="dom.state[dataKey]; let state;">
+
+          <div class="import-flex-row import-field-flex-row-offset" [ngClass]="{'sw-disabled':state.open}">
+            <div class="import-flex-row-wrap">
+              <div class="import-field import-field-spacing import-flex-item-sm import-flex-grow-sm">
+                <lib-pop-input class="pop-entity-phone-display" [config]="asset.display"></lib-pop-input>
+              </div>
+
+              <div class="pop-entity-phone-btn-container" [style.width.px]="ui.actionBtnWidth">
+                <div *ngIf="items['stop_call_at'] && !items['stop_call_at'].control.value" class="import-field import-flex-item-icon">
+                  <lib-pop-button
+                    [config]="asset.canCallBtn"
+                    (events)="onActionEvent($event, dataKey);"
+                  ></lib-pop-button>
+                </div>
+
+                <div *ngIf="items['stop_text_at'] && !items['stop_text_at'].control.value" class="import-field import-flex-item-icon">
+                  <lib-pop-button
+                    [config]="asset.canTextBtn"
+                    (events)="onActionEvent($event, dataKey);"
+                  ></lib-pop-button>
+                </div>
+
+                <div *ngIf="true" class="import-field import-flex-item-icon sw-pad-rgt-md">
+                  <lib-pop-entity-field-edit-icon
+                    (events)="onActionEvent($event, dataKey);" [field]="this.field"
+                    [dom]="dom"
+                  ></lib-pop-entity-field-edit-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- extension box -->
+
+          <div [ngClass]="{'sw-hidden':!state.open}" class="import-flex-row-wrap pt-02 sw-pad-lft-sm sw-pad-rgt-sm  sw-mar-top-sm">
+            <div class="import-flex-row-wrap">
+
+
+              <!--<div *ngIf="field.multiple && field.setting.edit_label && asset.entry; let entry;" class="import-field import-field-spacing import-flex-item-sm import-flex-grow-sm">-->
+              <!--<lib-pop-select [config]="entry"></lib-pop-select>-->
+              <!--</div>-->
+              <!--<div *ngIf="state.customLabel && asset.customLabel; let item;" class="import-field import-field-spacing import-flex-item-sm import-flex-grow-sm">-->
+              <!--<lib-pop-input [config]="item"></lib-pop-input>-->
+              <!--</div>-->
+              <!--<div class="import-flex-row-break"></div>-->
+
+              <!--<div class="import-flex-column-lg">-->
+                <div *ngIf="items['country_id']" class="import-field import-field-spacing import-flex-item-xs import-flex-grow-xs">
+                  <lib-pop-select
+                    [config]="items['country_id']"
+                    (events)="onFieldItemEvent($event, dataKey, 'country_id');"
+                  ></lib-pop-select>
+                </div>
+
+                <div *ngIf="items['number']" class="import-field import-field-spacing import-flex-item-xs import-flex-grow-sm">
+                  <lib-pop-input
+                    [config]="items['number']"
+                    (events)="onFieldItemEvent($event, dataKey, 'number');"
+                  ></lib-pop-input>
+                </div>
+
+                <!--<div *ngIf="items['type']; let item;"-->
+                <!--class="import-field import-field-spacing import-flex-item-md import-flex-grow-sm">-->
+                <!--<lib-pop-select-->
+                <!--[config]="item"-->
+                <!--(events)="onFieldItemEvent($event, dataKey, item.column);"-->
+                <!--&gt;</lib-pop-select>-->
+                <!--</div>-->
+
+                <div *ngIf="items['extension']" class="import-field import-field-spacing import-flex-item-xs import-flex-grow-xs">
+                  <lib-pop-input
+                    [config]="items['extension']"
+                    (events)="onFieldItemEvent($event, dataKey, 'extension');"
+                  ></lib-pop-input>
+                </div>
+              <!--</div>-->
+
+            </div>
+
+            <div class="import-flex-row-wrap">
+              <div class="import-flex-column-md">
+                <div class="import-field import-flex-item-full import-flex-grow-lg">
+                  <lib-pop-checkbox
+                    *ngIf="items['stop_call_at']; let item;"
+                    [config]="item"
+                    (events)="onFieldItemEvent($event, dataKey, 'can_call');">
+                  </lib-pop-checkbox>
+                </div>
+
+                <div class="import-field import-flex-item-full import-flex-grow-lg">
+                  <lib-pop-checkbox
+                    *ngIf="items['stop_text_at']; let item;"
+                    [config]="item" (events)="onFieldItemEvent($event, dataKey, 'can_text');"
+                  ></lib-pop-checkbox>
+                </div>
+
+              </div>
+              <div class="import-flex-column-md import-flex-end sw-pad-rgt-lg sw-pad-btm-lg">
+                <div class="import-flex-item-full import-flex-grow-lg sw-mar-top-md import-flex-end">
+                  <lib-pop-field-btn *ngIf="field.canRemove" action="remove" [field]="field" (events)="onActionEvent($event, dataKey);"></lib-pop-field-btn>
+                </div>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="import-flex-row-wrap import-flex-end sw-pad-rgt-lg sw-pad-btm-sm">
+              <lib-pop-button
+                [config]="{value:'Close', size: 30, color: 'accent', bubble: true, event: 'close'}"
+                (events)="onActionEvent($event, dataKey);"
+              ></lib-pop-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

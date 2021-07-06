@@ -1,0 +1,68 @@
+.pop-time-container {
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 8px 20px 13px 0;
+  }
+
+  ::ng-deep .mat-form-field-underline {
+    display: none;
+  }
+
+  ::ng-deep .date-column .mat-form-field-infix {
+    padding-left: 3px;
+  }
+
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  padding-bottom: unset;
+}
+
+.pop-time-container-legend {
+  font-size: 11px;
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: -5px;
+  clear: both;
+  z-index: 1;
+  width: fit-content;
+  color: var(--text-2);
+  background: var(--bg-3);
+}
+
+.pop-time-row-container {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex: 1 1 100%;
+  padding: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.time-column {
+  position: relative;
+  display: flex;
+  top: -8px;
+  flex-direction: column;
+  width: 26%;
+  flex-grow: 1;
+  margin-right: 2px;
+}
+
+.column-height {
+  height: 27px;
+}
+
+.align-column {
+  text-align: center;
+}

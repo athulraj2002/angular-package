@@ -1,0 +1,4 @@
+<h1 class="navigation-header">{{data.display}}</h1>
+<mat-nav-list class="pt-10">
+  <mat-list-item matRipple *ngFor="let item of data.list" (click)="navigate(item);"> {{item.name}}</mat-list-item>
+</mat-nav-list>

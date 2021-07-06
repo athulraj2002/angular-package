@@ -1,0 +1,23 @@
+.pop-entity-tab-section-bar-header {
+  position:relative;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  margin:-20px 0 0 0;
+}
+
+.pop-entity-tab-section-bar-wrapper {
+  flex: 1 1 100%;
+}
+
+.pop-entity-tab-section-bar-overflow {
+  overflow-y: scroll;
+}
+
+:host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, :host ::ng-deep .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  //background-color: var(--accent);
+}
+
+#back-button{
+  font-size: 14px;
+  color: red;
+}

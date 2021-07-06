@@ -1,0 +1,27 @@
+<div class="import-field-item-container pop-number-container" [ngClass]="{'sw-hidden': config.hidden, 'pop-number-minimal': config.minimal, 'pop-number-container-tooltip-adjust': config.tooltip && dom.state.tooltip}">
+  <div *ngIf="config.tooltip && dom.state.tooltip" [@slideInOut] class="pop-number-tooltip-container" [innerHTML]=config.tooltip></div>
+  <mat-form-field appearance="outline" color="accent" class="import-field-item-container-expansion">
+    <mat-label *ngIf="config.label">{{config.label}}</mat-label>
+
+    <input
+      type="number"
+      matInput
+      matTooltipClass="pop-number-tooltip-background"
+      [hidden]=config.hidden
+      [min]=config.min
+      [max]=config.max
+      [step]=config.step
+      [formControl]=config.control
+      (keyup)="onKeyUp($event);"
+      (blur)="dom.state.tooltip=false; onBlur();"
+      (focus)="dom.state.tooltip= true; onFocus();"
+      [maxlength]=config.maxlength
+    >
+    <div class="pop-number-feedback-container" matSuffix *ngIf="!config.minimal && ( config.message || config.helpText)">
+      <lib-pop-field-item-error class="pop-number-error-icon" [hidden]="!config.message" [message]="config.message"></lib-pop-field-item-error>
+      <lib-pop-field-item-helper class="pop-number-helper-icon" [hidden]="config.message" [helpText]=config.helpText></lib-pop-field-item-helper>
+    </div>
+  </mat-form-field>
+
+  <lib-pop-field-item-loader [show]="config.patch.displayIndicator && config.patch.running"></lib-pop-field-item-loader>
+</div>

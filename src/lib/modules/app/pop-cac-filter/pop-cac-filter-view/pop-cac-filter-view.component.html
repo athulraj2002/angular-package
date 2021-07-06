@@ -1,0 +1,121 @@
+<div class="cac-filter-container theme-background-base" *ngIf="ui.config" [ngClass]="{'sw-hidden': !ui.config.active, 'cac-filter-container-open': dom.state.open && ui.config.display === 'default'}">
+  <div class="cac-filter-loader">
+    <mat-progress-bar *ngIf="ui.config.loader" mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <div class="cac-filter-header" [ngClass]="{'sw-hidden':dom.state.loading}">
+
+    <div class="cac-filter-header-column theme-background-base" [style.minWidth.px]="125" [style.maxWidth.px]="125">
+      <div class="cac-filter-label-text">
+        FILTERS
+      </div>
+      <mat-icon class="cac-filter-label-icon sw-pointer" [ngClass]="{'sw-hidden':dom.state.open}" (click)="onToggleOpen();">
+        arrow_right
+      </mat-icon>
+      <mat-icon class="cac-filter-label-icon sw-pointer" [ngClass]="{'sw-hidden':!dom.state.open}" (click)="onToggleOpen();">
+        arrow_drop_down
+      </mat-icon>
+    </div>
+    <div class="cac-filter-header-column theme-background-base" *ngFor="let entity of ui.entities" [ngClass]="{'sw-hidden': !entity.visible}">
+      <div class="cac-select-filter-button">
+        <div class="cac-select-filter-button-bar" [ngClass]="{'filter-selected':entity.indeterminate}"></div>
+        <mat-form-field appearance="none">
+          <mat-label>{{entity.name}}</mat-label>
+          <input
+            matInput
+            [matTooltip]="entity.selectedText"
+            [readonly]=true
+            type="text"
+            [(ngModel)]="entity.selectedText"
+          >
+          <div class="sw-pointer cac-select-filter-icon" matSuffix matTooltipPosition="below" [matTooltipShowDelay]="500" [matTooltip]="entity.totalText">
+            <mat-icon class="sw-pointer" (click)="onToggleOpen(entity.internal_name);">
+              filter_list
+            </mat-icon>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="cac-filter-header-menu" [style.minWidth.px]="125" [style.maxWidth.px]="125">
+      <div class="cac-filter-header-row">
+        <div class="cac-filter-action-text" [ngClass]="{'sw-disabled': ui.config.invalid, 'sw-pointer': !ui.config.invalid}" *ngIf="dom.state.filterNeedsApplied" (click)="applyFilter();">
+          APPLY
+        </div>
+        <div class="cac-filter-action-text sw-pointer" *ngIf="dom.state.currentFilterRelevant && !dom.state.filterNeedsApplied" (click)="resetFilter();">
+          RESET
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toggle Container-->
+  <div class="cac-filter-body" *ngIf="dom.state.open" [@slideInOut] [ngClass]="{'cac-filter-body-float theme-background-base': ui.config.display === 'float'}">
+    <div class="cac-filter-header-column" [style.border]="0" [style.minWidth.px]="125" [style.maxWidth.px]="125">
+      <!--Filler to reserve space to match headers-->
+    </div>
+    <div class="cac-filter-body-column" *ngFor="let entity of ui.entities" [ngClass]="{'sw-hidden': !entity.visible}">
+
+      <div class="cac-filter-body-column-header">
+
+        <div class="cac-filter-option-select-container" *ngIf="!entity.single" [style.marginLeft.px]="3">
+
+          <mat-checkbox class="cac-filter-check-all" [(ngModel)]="entity.checkAll"
+                        [style.marginRight.px]="1"
+                        [disabled]=!entity.totalVisible
+                        [indeterminate]="entity.indeterminate"
+                        (change)="onCheckAll(entity);">
+          </mat-checkbox>
+        </div>
+
+        <mat-form-field class="sw-search" appearance="none" color="accent">
+          <a matPrefix>
+            <mat-icon>search</mat-icon>
+          </a>
+          <input id="{{entity.internal_name}}-search-input" matInput [(ngModel)]="entity.search" (keyup)="onApplySearch(entity)">
+        </mat-form-field>
+        <mat-icon class="sw-pointer cac-filter-clear-icon"
+                  [ngClass]="{'sw-transparent': !entity.search }"
+                  matTooltip="Clear Search"
+                  (click)="onApplySearch(entity); entity.search = '';"
+        >
+          close
+        </mat-icon>
+      </div>
+      <mat-divider></mat-divider>
+      <cdk-virtual-scroll-viewport [@fadeInOut] itemSize="25" minBufferPx="125" maxBufferPx="250" class="cac-filter-body-column-contents">
+        <div class="cac-filter-body-column-row pop-checkbox-container checkbox-has-label cac-filter-option-hover" *cdkVirtualFor="let option of entity.feed | async ; trackBy: trackByFn"
+        >
+          <div class="cac-filter-option-select-container">
+            <mat-checkbox
+              [ngClass]="{'sw-hidden':entity.single}"
+              [(ngModel)]="entity.selected[option.id]"
+              [labelPosition]="'before'"
+              (click)="onCheckboxChange($event, entity, option.id)"
+            ></mat-checkbox>
+            <div class="cac-filter-option-radio" [ngClass]="{'sw-hidden':!entity.single}">
+              <mat-icon class="sw-pointer" [ngClass]="{'sw-hidden': entity.selected[option.id]}" (click)="onRadioChange($event, entity, option.id)">
+                radio_button_unchecked
+              </mat-icon>
+              <mat-icon class="sw-pointer cac-filter-option-checked" [ngClass]="{'sw-hidden': !entity.selected[option.id]}" (click)="onRadioChange($event, entity, option.id)">
+                radio_button_checked
+              </mat-icon>
+            </div>
+          </div>
+          <div class="cac-filter-option-select-text" *ngIf="entity.single" (click)="onRadioChange($event, entity, option.id)">
+            {{option.name}}
+            <small class="cac-filter-option-select-id">{{option.id}}</small>
+          </div>
+          <div class="cac-filter-option-select-text" *ngIf="!entity.single" (click)="onCheckboxChange($event, entity, option.id);">
+            {{option.name}}
+            <small class="cac-filter-option-select-id">{{option.id}}</small>
+          </div>
+
+        </div>
+      </cdk-virtual-scroll-viewport>
+
+    </div>
+    <div class="cac-filter-header-menu" [style.minWidth.px]="125" [style.maxWidth.px]="125">
+      <!--Filler to reserve space to match headers-->
+    </div>
+  </div>
+</div>

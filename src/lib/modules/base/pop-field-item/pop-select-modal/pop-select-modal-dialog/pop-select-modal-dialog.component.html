@@ -1,0 +1,13 @@
+<div class="pop-select-modal-container import-field-item-container" [style.height.px]=dom.height.outer>
+  <mat-progress-bar [ngClass]="{'sw-hidden': dom.state.loaded}" mode="determinate" [value]=dom.state.progress></mat-progress-bar>
+  <div class="pop-select-modal-wrapper" [style.height.px]=dom.height.inner *ngIf="dom.state.loaded">
+    <div class="mat-h2 pop-select-modal-header">{{config.header}}</div>
+    <div class="pop-select-modal-content">
+      <lib-pop-select-list [config]=config.list></lib-pop-select-list>
+    </div>
+  </div>
+  <div class="pop-select-modal-actions">
+    <button class="pop-select-modal-btn" mat-raised-button (click)="cancel()" cdkFocusInitial>Cancel</button>
+    <button class="pop-select-modal-btn" [disabled]="!config.list.control.value" mat-raised-button (click)="confirm()">Ok</button>
+  </div>
+</div>

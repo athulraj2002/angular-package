@@ -1,0 +1,9 @@
+<div class="entity-tab-menu-container" [style.height.px]=dom.height.outer>
+  <ng-container #container>
+    <div class="entity-tab-menu-spinner-box" *ngIf="dom.state.loader">
+      <lib-main-spinner></lib-main-spinner>
+    </div>
+  </ng-container>
+  <lib-pop-field-item-group *ngIf="ui.actionModal" [config]="ui.actionModal" (close)="onActionModalClose();"></lib-pop-field-item-group>
+  <lib-pop-errors *ngIf="dom.error?.message" [error]="dom.error"></lib-pop-errors>
+</div>

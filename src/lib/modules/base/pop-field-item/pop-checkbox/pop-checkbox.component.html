@@ -1,0 +1,26 @@
+<div class="pop-checkbox-container pop-checkbox-label-{{config.labelPosition}} pop-checkbox-{{config.textOverflow}}-text position-{{this.config.align}} import-field-item-container" [ngClass]="{'pop-checkbox-has-label':config.label, 'pop-checkbox-no-label': !config.label, 'pop-checkbox-reverse':config.label && config.labelPosition === 'before'}">
+  <mat-checkbox
+    [formControl]=config.control
+    [ngClass]="{'pop-checkbox-no-pointer': config.patch.running}"
+    [(indeterminate)]="dom.state.indeterminate"
+    [labelPosition]="config.labelPosition"
+    (click)="$event.stopPropagation();"
+    (change)="onChange();"
+    (keyup.enter)="onEnter($event)"
+  >
+  </mat-checkbox>
+
+  <!--<div class="pop-checkbox-spacer" *ngIf="config.label"></div>-->
+  <div class="pop-checkbox-filler" *ngIf="config.label"></div>
+  <div class="pop-checkbox-column">
+    <lib-pop-field-item-error class="pop-checkbox-error" [hidden]="!config.message || !config.label" [message]="config.message"></lib-pop-field-item-error>
+    <lib-pop-field-item-helper class="pop-checkbox-helper" [hidden]="config.message || !config.label" [helpText]=config.helpText></lib-pop-field-item-helper>
+  </div>
+  <div *ngIf="config.label" class="pop-checkbox-label">
+    <h4>{{config.label}}</h4>
+  </div>
+  <lib-pop-field-item-loader [show]="config.patch.displayIndicator && config.patch.running"></lib-pop-field-item-loader>
+</div>
+
+
+

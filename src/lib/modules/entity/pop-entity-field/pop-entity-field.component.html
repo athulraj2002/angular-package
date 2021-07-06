@@ -1,0 +1,14 @@
+<!--<div class="pop-entity-field-container sw-field-main-wrapper-boundary" (contextmenu)="dom.contextMenu.configure($event);">-->
+<div class="pop-entity-field-container sw-field-main-wrapper-boundary">
+<!--<div class="pop-entity-field-container sw-field-main-wrapper-boundary">-->
+  <div class="import-field-header" *ngIf="field.multiple || field.setting.show_name">
+    <div class="import-field-header-title" [ngClass]="{'sw-field-main-container-header-title-link sw-pointer sw-hover': true}" (click)="onNavigateToField();">
+      {{field.label}}
+    </div>
+    <!--<lib-pop-field-btn *ngIf="field.canAdd" class="sw-mar-hrz-sm" action="add" [field]="field" (events)="onActionButtonClick($event);"></lib-pop-field-btn>-->
+  </div>
+  <div class="import-field-container">
+    <ng-container #container></ng-container>
+  </div>
+  <!--<lib-pop-context-menu *ngIf="dom.contextMenu.config" [config]="dom.contextMenu.config"></lib-pop-context-menu>-->
+</div>

@@ -1,0 +1,132 @@
+:host {
+  flex: 1 1;
+}
+
+.access-permissions-container {
+  flex: 1 1;
+  padding: 0 20px;
+  //min-width: 1101px;
+}
+
+
+.access-permissions-content {
+  flex: 1 1 100%;
+  height: calc(100vh - 235px);
+  clear: both;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 2px;
+}
+
+.access-expansion-state-select {
+  position: absolute;
+  right: 5px;
+  top: 0px;
+  max-width: 200px;
+}
+
+
+.access-app-permission-header {
+  flex: 1 1 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.access-app-title-container {
+  display: flex;
+  height: 48px;
+  padding: 0 0 0 2%;
+  pointer-events: all;
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+  overflow:hidden;
+}
+
+.access-spacer {
+  display: flex;
+  flex-grow: 1;
+  height: 48px;
+  padding: 0 1%;
+}
+
+.access-app-title {
+  font-size: 18px;
+  display: block;
+  //multiple_max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.access-entity-title {
+  font-size: 16px;
+  display: block;
+  //multiple_max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.access-app-permission-container {
+  min-width: 16%;
+}
+
+.access-app-toggle-container {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+  height: 48px;
+}
+
+.access-app-entity-header {
+  flex: 1 1 100%;
+  min-height: 48px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.access-entity-title-container {
+  display: flex;
+  height: 48px;
+  padding: 0 0 0 3%;
+  pointer-events: all;
+  align-items: center;
+  width: 30%;
+  max-width: 30%;
+}
+
+
+.access-filter-bar-loader {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 7px;
+  clear: both;
+}
+
+:host ::ng-deep.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: none !important;
+}
+
+:host ::ng-deep mat-expansion-panel {
+  margin-bottom: 40px !important;
+  border: 1px solid #ccc;
+}
+
+:host ::ng-deep .mat-expansion-panel-body {
+  padding: 0 0 0 0 !important;
+}
+
+:host ::ng-deep mat-expansion-panel-header {
+  padding: 0 !important;
+  max-height: 48px !important;
+}

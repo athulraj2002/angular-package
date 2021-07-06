@@ -1,0 +1,52 @@
+<div class="pop-table-container" [style.height.px]=dom.height.outer>
+  <div class="pt-dark-text pop-table-control" *ngIf="config?.options || config?.buttons.length || ( config?.search && !config?.searchColumns )">
+    <div class="search-control">
+      <div *ngIf="config.search && !config.searchColumns">
+        <mat-form-field class="sw-search" appearance="outline" color="accent">
+          <a matPrefix>
+            <mat-icon>search</mat-icon>
+          </a>
+          <mat-icon class="sw-pointer" matSuffix (click)="onApplySearchValue('',''); dom.session.searchValue = '';">
+            close
+          </mat-icon>
+          <input matInput [(ngModel)]="dom.session.searchValue" (keyup)="onApplySearchValue($event.target.value, '')"
+                 placeholder="Search">
+        </mat-form-field>
+      </div>
+    </div>
+    <div *ngIf="config.buttons.length && ui.buttonControl">
+      <div class="pop-table-button-control">
+        <div *ngFor="let button of config.buttons; last as isLast">
+          <div [ngClass]="{'last-button': isLast && !config.options}">
+            <button mat-raised-button class="pop-table-buttons"
+                    (click)="onBubbleEvent((button.id ? button.id : button.name), config.selection?.selected)" [ngClass]="{'sw-hidden': (
+                ( button.requireSelected && !ui.buttonControl.requireSelected ) ||
+                ( button.requireOneSelected && !ui.buttonControl.requireOneSelected ) ||
+                ( button.requireNoneSelected && !ui.buttonControl.requireNoneSelected )
+              )}">
+              {{button.name}}
+            </button>
+          </div>
+        </div>
+        <button mat-raised-button *ngIf="config.options" (click)="onEditTablePreferencesClick()" class="sw-icon-button">
+          <span class="sw-pop-icon">Q</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pop-table-loader">
+    <mat-progress-bar *ngIf="config?.loading" mode="indeterminate"></mat-progress-bar>
+  </div>
+  <div #wrapper class="pop-table-wrapper" [style.maxHeight.px]=null [style.minHeight.px]=dom.height.inner
+       [ngClass]="{'pop-table-wrapper-pagination': this.dom.state.hasPagination, 'pop-table-pagination-inactive pop-table-wrapper-scroll': !this.dom.state.hasPagination}">
+    <!-- Needs some design process -->
+    <h1 *ngIf="!dom.state['hasColumnDefinitions']">No Data Available</h1>
+    <!--  -->
+    <lib-pop-table-view *ngIf="dom.state.loaded && !dom.state.refresh" [config]=config></lib-pop-table-view>
+  </div>
+  <div class="pop-table-footer" class="sw-hidden"[ngClass]="{'sw-hidden': true || !config?.paginator}">
+    <div >
+      <mat-paginator></mat-paginator>
+    </div>
+  </div>
+</div>

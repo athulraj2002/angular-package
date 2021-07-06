@@ -1,0 +1,255 @@
+.entity-scheme-asset-container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-width: 700px;
+  flex-direction: column;
+  box-sizing: border-box;
+  //background: pink;
+}
+
+.entity-scheme-asset-content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
+  clear: both;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-divider {
+  flex: 1;
+  width: 300px;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-section-wrapper {
+  flex: 1;
+  border: 1px solid var(--border);
+  width: 300px;
+  margin: 15px;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-item:hover {
+  background-color: var(--darken02);
+}
+
+.entity-scheme-asset-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  padding: 0 5px 0 15px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1em;
+  font-weight: bold;
+  clear: both;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-item { // the div that repeats for each field item
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid var(--border);
+  box-sizing: border-box;
+  padding-left: 5px;
+  -moz-box-sizing: border-box;
+  ::ng-deep .pop-checkbox-container{
+    margin-top: 0 !important;
+  }
+
+}
+
+.entity-scheme-asset-item-active-selector { // div that contains the checkbox that activates/deactivates a field item form set
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-scheme-asset-active-selection { // the active field item that has been selected
+  padding-left: 0px !important;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: var(--primary);
+}
+
+.entity-scheme-asset-item-label-name { // div that contains the name for the field item
+  width: 75%;
+  align-items: center;
+  justify-content: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entity-scheme-asset-item-label-helper { // div that contains the helper icon for the field item
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+  //background: blue;
+  min-height: 40px;
+}
+
+.entity-scheme-asset-item-helper-icon {
+  margin-top: 10px;
+  margin-right: 2px;
+  width: 20px;
+  height: 20px;
+  font-size: .7em;
+  z-index: 2;
+}
+
+.entity-scheme-asset-buttons {
+  margin: 0 15px 10px 15px;
+  display: flex;
+  justify-content: flex-end;
+  .in-dialog-cancel {
+    order: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .in-dialog-other {
+    order: 2;
+    flex-grow: 2;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 10px;
+  }
+}
+
+.entity-scheme-asset-setting-wrapper {
+  position: relative;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-bottom: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.entity-scheme-asset-setting-header {
+  position: relative;
+}
+
+.entity-scheme-asset-setting-content {
+  flex: 1;
+  padding: 10px 15px 10px 10px;
+  box-sizing: border-box;
+  min-height: 100px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  //border-bottom: 1px solid var(--border);
+}
+
+.entity-scheme-asset-setting-active-config { // the active field item that has been selected
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: var(--primary);
+}
+
+.entity-scheme-asset-setting-options-headers {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2px;
+  height: 32px;
+}
+
+.entity-scheme-asset-setting-options-sort {
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-scheme-asset-setting-options-active {
+  display: flex;
+  width: 75px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-scheme-asset-setting-options-input {
+  display: flex;
+  width: 30%;
+  flex-grow: 1;
+}
+
+.entity-scheme-asset-setting-options-icon {
+  display: flex;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.entity-scheme-asset-setting-options-new {
+  float: right;
+}
+
+.entity-scheme-asset-setting-options-container {
+  position: relative;
+  width: 100%;
+  min-height: 30px;
+  padding: 5px 0;
+  box-sizing: border-box;
+}
+
+.entity-scheme-asset-handle {
+  cursor: move;
+}
+
+.entity-scheme-btm-border {
+  border-bottom: 1px solid var(--border);
+}
+
+:host ::ng-deep .entity-scheme-asset-setting-options-container .mat-form-field-infix {
+  width: auto;
+  padding: 6px !important;
+  margin-top: 6px !important;
+  border: 0 !important;
+}
+
+:host ::ng-deep .entity-scheme-asset-setting-options-container .pop-input-container {
+  margin: 2px;
+}
+
+:host ::ng-deep .entity-scheme-asset-setting-options-container .pop-input-feedback-container {
+  margin-top: -4px;
+}
+
+:host ::ng-deep .entity-scheme-asset-setting-reset-box {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+:host ::ng-deep .entity-scheme-asset-setting-reset-box .pop-input-container, :host ::ng-deep .entity-scheme-asset-setting-reset-box .pop-select-container, :host ::ng-deep .entity-scheme-asset-setting-box .pop-textarea-container {
+  margin: 2px 0;
+}
+
+

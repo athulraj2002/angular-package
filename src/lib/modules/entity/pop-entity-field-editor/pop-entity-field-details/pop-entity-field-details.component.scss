@@ -1,0 +1,13 @@
+@import "../../../../assets/css/import/flex";
+
+.entity-field-details-container{
+  max-width: var(--field-max-width);
+}
+
+
+.entity-field-details-row {
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  margin-top: 1px;
+}

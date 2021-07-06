@@ -1,0 +1,24 @@
+<div class="pop-switch-container import-field-item-container" [title]="config?.tooltip ?  config?.tooltip : '' " [style.padding]=config.padding [ngClass]="{ 'pop-switch-has-label':config.label, 'pop-switch-no-label': !config.label, 'pop-switch-label-before': config.label && config.labelPosition === 'before', 'pop-switch-label-after': config.label && config.labelPosition === 'after', 'pop-switch-wrap-text': config.label && config.textOverflow === 'wrap', 'pop-switch-wrap-ellipsis': config.label && config.textOverflow === 'ellipsis'}">
+  <mat-slide-toggle
+    #switch
+    [ngClass]="{'pop-switch-no-pointer': config.patch.running}"
+    [labelPosition]="config.labelPosition"
+    [disableRipple]=1
+    [disabled]=config?.disabled
+    [name]="config.label"
+    (keyup.enter)="onEnter($event)"
+    (change)="onSelection($event)">
+
+
+    <div class="mat-body">
+      <div class="pop-switch-feedback-container" *ngIf="config.label">
+        <lib-pop-field-item-error class="pop-switch-error" [hidden]="!config.message" [message]="config.message"></lib-pop-field-item-error>
+        <lib-pop-field-item-helper class="pop-switch-helper" [hidden]="config.message" [helpText]=config.helpText></lib-pop-field-item-helper>
+      </div>
+      <h4>{{config.label}}</h4>
+    </div>
+
+  </mat-slide-toggle>
+
+  <lib-pop-field-item-loader [show]="config.patch.displayIndicator && config.patch.running"></lib-pop-field-item-loader>
+</div>

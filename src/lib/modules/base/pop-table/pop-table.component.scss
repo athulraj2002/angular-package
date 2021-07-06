@@ -1,0 +1,99 @@
+.pop-table-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0 5px;
+
+  .pop-table-control {
+    display: flex;
+    justify-content: space-between;
+    //margin-bottom: var(--gap-xs);
+    .search-control {
+      flex-grow: .5;
+    }
+    .pop-table-button-control {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-grow: 1;
+      margin-bottom: 7px;
+      margin-right: -5px;
+      button {
+        font-size: 14px;
+        margin-top: 1px;
+        margin-right: 10px !important;
+        line-height: 20px !important;
+        height: 34px;
+      }
+    }
+    height:45px;
+  }
+
+  .pop-table-wrapper {
+    display: flex;
+    flex-direction: column;
+    //border-bottom: 1px solid #ccc;
+    overflow-x: auto;
+    //margin-bottom: 35px;
+  }
+
+  .pop-table-footer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    border: 1px solid var(--background-border);
+    background: var(--background-item-menu);
+    border-bottom-left-radius: var(--radius-xs);
+    border-bottom-right-radius: var(--radius-xs);
+  }
+}
+
+.pop-table-loader {
+  position: relative;
+  top: -1px;
+  height: 1px;
+  overflow: hidden;
+  clear: both;
+  z-index: 1;
+}
+
+.pop-table-wrapper-pagination {
+  overflow-y: auto !important;
+  //overflow-y: hidden !important;
+}
+
+.pop-table-wrapper-scroll {
+  overflow-y: auto !important;
+}
+
+:host ::ng-deep .pop-table-wrapper-scroll mat-paginator .mat-icon-button {
+  opacity: .1;
+  pointer-events: none;
+}
+
+:host ::ng-deep .search-control .mat-form-field .mat-form-field-infix {
+  width: 200px;
+}
+
+// TODO find a better solution for this.
+
+::ng-deep th.mat-header-cell, ::ng-deep td.mat-cell{
+  font-size: 14px;
+  height: 0px !important;
+  padding: 0px;
+}
+
+::ng-deep .mat-header-row{
+  height: 40px !important;
+}
+
+
+::ng-deep .mat-header-row, ::ng-deep .mat-row{
+  height: 40px !important;
+}

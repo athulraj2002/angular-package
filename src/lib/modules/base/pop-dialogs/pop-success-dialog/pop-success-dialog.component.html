@@ -1,0 +1,18 @@
+<div [ngClass]="{'sw-hidden': !dom.state.loaded}" class="pop-success-close-btn sw-pointer" (click)="onFormClose();">
+  <mat-icon>close</mat-icon>
+</div>
+<div [ngClass]="{'sw-hidden': !dom.state.loaded}">
+  <div class="pop-success-dialog-header" *ngIf="ui.header">{{ui.header}}</div>
+  <div class="pop-success-dialog-content">
+    <p class="theme-background-success" [innerHTML]="ui.message"></p>
+  </div>
+  <div class="pop-success-dialog-buttons">
+    <button class="pop-success-dialog-other" mat-raised-button color="accent" (click)="onFormClose()">
+      {{ui.submitText}}
+    </button>
+  </div>
+
+</div>
+<div class="pop-success-spinner-box" *ngIf="dom.state.loader">
+  <lib-main-spinner></lib-main-spinner>
+</div>

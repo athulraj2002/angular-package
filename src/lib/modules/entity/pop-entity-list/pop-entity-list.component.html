@@ -1,0 +1,8 @@
+<div class="entity-list-container" [style.height.px]="dom.height.inner" [ngStyle]="!dom.state.filter && {'margin-top': '25px'}" (window:resize)="onResetTable();">
+  <lib-pop-table #list *ngIf="table.config" [core]=core [config]="table.config" (events)="onTableEvent($event)"></lib-pop-table>
+  <div class="entity-list-spinner-box" *ngIf="dom.state.loader">
+    <lib-main-spinner></lib-main-spinner>
+  </div>
+</div>
+<!--<lib-pop-field-item-group *ngIf="ui.actionModal" [config]="ui.actionModal" (close)="onActionModalClose()"></lib-pop-field-item-group>-->
+<lib-pop-errors *ngIf="dom.error?.message" [error]="dom.error"></lib-pop-errors>

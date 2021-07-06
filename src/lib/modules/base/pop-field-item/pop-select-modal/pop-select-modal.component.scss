@@ -1,0 +1,30 @@
+.pop-select-modal-container {
+  position: relative;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+:host ::ng-deep .pop-input-container {
+  margin: 0 !important;
+}
+
+
+:host ::ng-deep .pop-select-modal-values .mat-form-field-infix {
+  padding: 8px 20px 13px 0px !important;
+  pointer-events: none !important;
+}
+
+:host ::ng-deep .pop-select-modal-values input {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  pointer-events: none !important;;
+  box-sizing: border-box;
+}
+
+:host ::ng-deep .pop-select-modal-values .mat-form-field-infix {
+  pointer-events: none !important;
+}
+

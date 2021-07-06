@@ -1,0 +1,56 @@
+.pop-entity-tab-container {
+  box-sizing: border-box;
+  flex: 1 1 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.pop-entity-tab-container-wrap {
+  padding: 30px 15px 15px 15px;
+  box-sizing: border-box;
+}
+
+.pop-entity-tab-column-header {
+  position: relative;
+  height: 50px;
+  clear: both;
+}
+
+.pop-entity-tab-column {
+  position: relative;
+  flex: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  min-height: 0px;
+}
+
+.pop-entity-tab-column-wrap {
+  margin: 0 15px;
+}
+
+.pop-entity-tab-column-content {
+  position: relative;
+  overflow-x: hidden;
+  flex: 1 1 auto;
+  padding-bottom: 2px;
+}
+
+.pop-entity-tab-loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 7px;
+  clear: both;
+  z-index: 2;
+  opacity: 1 !important;
+}
+
+.pop-entity-tab-refresh {
+  opacity: .5;
+  pointer-events: none;
+}
+
+

@@ -1,0 +1,53 @@
+.entity-custom-component-container {
+  position: relative;
+  flex: 1;
+  min-height: 300px;
+  margin-top: var(--gap-m);
+  margin-bottom: var(--gap-m);
+  padding: var(--gap-xs);
+  border: 1px solid var(--border);
+}
+
+.entity-custom-component-header {
+  display: flex;
+  flex-grow: 1;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  clear: both;
+  background: var(--background-main-menu);
+  color: var(--foreground-base);
+  padding: 0 var(--gap-sm);
+}
+
+.entity-custom-component-title {
+  font-weight: bold;
+}
+
+.entity-custom-component-delete,
+.entity-custom-component-refresh,
+.entity-custom-component-edit {
+  mat-icon {
+    font-size: 20px;
+    color: var(--foreground-disabled);
+    position: relative;
+    top: -2px;
+    cursor: pointer;
+  }
+}
+
+.entity-custom-component-spacer {
+  flex-grow: 1;
+}
+
+.entity-custom-component-content {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: var(--gap-sm);
+}
+
+.entity-custom-component-loader {
+  height: 150px
+}

@@ -1,0 +1,22 @@
+:host {
+  flex: 1 1 100%;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+::ng-deep mat-dialog-container {
+  position: relative;
+}
+
+.buttons {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+
+  .cancel {
+    order: 1;
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

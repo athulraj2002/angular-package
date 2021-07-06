@@ -1,0 +1,13 @@
+
+<mat-card class="pop-datepicker-panel">
+  <button
+    class="date-preset-button"
+    [ngClass]="{'selected': item === selected}"
+    *ngFor="let item of presets"
+    mat-button
+    color="accent"
+    (click)="selectDatePreset(item)"
+  >
+    {{ item }} <span *ngIf="item === 'Last' || item === 'Previous' || item === 'Next'">{{dayOfWeek}}</span>
+  </button>
+</mat-card>

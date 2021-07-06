@@ -1,0 +1,19 @@
+<div class="entity-custom-component-container import-flex-column">
+  <div class="entity-custom-component-header mat-body" style="flex-grow:0">
+    <div class="entity-custom-component-title">{{config?.name}}</div>
+    <div class="entity-custom-component-spacer"></div>
+    <div class="entity-custom-component-refresh" *ngIf="dom.state.hasRefresh">
+      <mat-icon class="sw-pointer" (mousedown)="onRefreshComponent()">refresh</mat-icon>
+    </div>
+    <div class="entity-custom-component-edit" *ngIf="dom.state.hasOptions">
+      <mat-icon class="sw-pointer" (mousedown)="onEditComponentOptions()">settings</mat-icon>
+    </div>
+
+  </div>
+  <div class="entity-custom-component-loader" *ngIf="dom.state.loader">
+    <lib-main-spinner></lib-main-spinner>
+  </div>
+  <div class="entity-custom-component-content">
+    <ng-template #container></ng-template>
+  </div>
+</div>

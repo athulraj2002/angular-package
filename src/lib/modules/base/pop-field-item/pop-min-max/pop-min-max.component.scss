@@ -1,0 +1,63 @@
+@import "../../../../assets/css/import/text";
+@import "../../../../assets/css/import/pad";
+@import "../../../../assets/css/import/mar";
+
+
+:host{
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pop-minmax-container {
+  ::ng-deep .mat-slide-toggle-content {
+    padding-right: 5px !important;
+  }
+
+  ::ng-deep .pop-minmax-content .mat-form-field-infix {
+    width: auto;
+    padding: 6px 0 !important;
+    margin-top: 6px !important;
+    border: 0 !important;
+    font-size: .9em;
+  }
+}
+
+.pop-minmax-label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pop-minmax-content {
+  min-height: 40px;
+  clear: both;
+  font-size: .9em;
+}
+
+.pop-minmax-content-section {
+  min-height: 40px;
+}
+
+.pop-minmax-helper-icon {
+  position: relative;
+  top: 4px;
+  margin-left: 5px;
+  font-size: .7em;
+  z-index: 2;
+}
+
+.pop-minmax-feedback {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  width: 20px;
+  height:20px;
+}
+
+.pop-minmax-error-icon {
+  position: relative;
+  z-index: 2;
+  top:-2px;
+}

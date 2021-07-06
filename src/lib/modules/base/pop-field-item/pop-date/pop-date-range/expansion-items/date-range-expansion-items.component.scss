@@ -1,0 +1,78 @@
+.example-header {
+  display: flex;
+  align-items: center;
+  padding: var(--gap-m) var(--gap-m) 0 var(--gap-m);
+}
+
+.nav-button{
+
+  color: var(--foreground-disabled);
+}
+
+.view-nav{
+  position: relative;
+  top: 7px;
+}
+
+.header-label {
+
+  position: relative;
+  top: -5px;
+  flex: 1;
+  font-size: 14px;
+  color: var(--foreground-disabled);
+  text-align: left;
+  cursor: pointer;
+}
+
+.example-double-arrow .mat-icon {
+  color: var(--foreground-disabled);
+  margin: -22%;
+}
+
+.date-custom-footer{
+  position: relative;
+  top: 320px;
+  float: right;
+  padding-right: var(--gap-m);
+  // border: 1px solid grey;
+}
+
+.date-action-button{
+  margin-right: var(--gap-s);
+}
+
+::ng-deep .mat-calendar-body-in-range:not(.mat-calendar-body-range-start):not(.mat-calendar-body-range-end)::before{
+  background: var(--accent-selected);
+}
+
+::ng-deep td.mat-calendar-body-cell.mat-calendar-body-in-range.ng-star-inserted:last-child::before{
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+::ng-deep tr:last-child td.mat-calendar-body-cell.mat-calendar-body-in-range.ng-star-inserted:last-child::before{
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+::ng-deep td.mat-calendar-body-cell.mat-calendar-body-in-range.ng-star-inserted[data-mat-col='0']::before{
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+}
+
+
+::ng-deep .mat-calendar-body-range-start::before{
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  background: var(--accent-selected);
+}
+
+::ng-deep .mat-calendar-body-range-end::before {
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  background: var(--accent-selected);
+}
+
+::ng-deep .mat-calendar-body-cell{
+}

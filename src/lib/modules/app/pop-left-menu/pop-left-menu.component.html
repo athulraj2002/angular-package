@@ -1,0 +1,27 @@
+<div class="pop-left-menu" [ngClass]="{'pop-left-menu-closed': dom.state.closed, 'pop-left-menu-open': dom.state.open}">
+  <mat-nav-list>
+    <div class="pop-left-menu-item" *ngFor="let menu of entityMenus">
+      <a class="pop-left-menu-item-header" [routerLink]="menu.path" matRipple routerLinkActive="pop-left-menu-item-header-active">
+        <div class="pop-left-menu-icon-container">
+          <mat-icon *ngIf=" menu.iconType && menu.iconType === 'materials'" [matTooltip]=menu.name [matTooltipPosition]="'right'" [matTooltipDisabled]="dom.state.open">
+            {{menu.icon}}
+          </mat-icon>
+          <span *ngIf=" menu.iconType && menu.iconType === 'pop'" class="sw-pop-icon" [matTooltip]=menu.name [matTooltipPosition]="'right'" [matTooltipDisabled]="dom.state.open">
+              {{menu.icon}}
+          </span>
+          <div class="sw-circle-ID mat-body-2" *ngIf="!menu.iconType && menu.character_icon" [matTooltip]=menu.name [matTooltipPosition]="'right'" [matTooltipDisabled]="dom.state.open">
+            {{menu.character_icon}}
+          </div>
+        </div>
+        <div class="pop-left-menu-label-container">
+          <span class="mat-body">{{menu.name}}</span>
+        </div>
+      </a>
+    </div>
+  </mat-nav-list>
+  <lib-main-spinner *ngIf="dom.state.loader"></lib-main-spinner>
+  <button class="pop-left-menu-toggle" mat-icon-button (click)="onToggleMenu();">
+    <span class="sw-pop-icon" *ngIf="dom.state.open" id="left-nav-open">H</span>
+    <span class="sw-pop-icon" *ngIf="dom.state.closed" id="left-nav-close">I</span>
+  </button>
+</div>

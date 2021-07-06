@@ -1,0 +1,49 @@
+.pop-slider-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+:host ::ng-deep mat-label {
+  width: 75px;
+}
+
+.pop-slider-display {
+  display: flex;
+  min-width: 10px;
+  padding: 0 2px;
+  text-align: right;
+}
+
+.pop-slider-error-icon {
+  position: absolute;
+  z-index: 2;
+  margin-top: 3px;
+}
+
+.pop-slider-feedback-container {
+  position: relative;
+  display: flex;
+  width: 30px;
+  height: 20px;
+  padding-top: 2px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep mat-slider {
+  padding: 0;
+  vertical-align:top;
+  display: block;
+}
+
+:host ::ng-deep .mat-slider-horizontal {
+  display: flex;
+  flex-grow: 1;
+}

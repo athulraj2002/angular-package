@@ -1,0 +1,113 @@
+$open-width: 256px;
+$closed-width: 80px;
+
+.pop-left-menu {
+  height: 100vh;
+  padding: 20px 0 0 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pop-left-menu-open {
+  width: $open-width;
+  transition: width 500ms;
+}
+
+.pop-left-menu-closed {
+  width: $closed-width;
+  transition: width 500ms;
+}
+
+.pop-left-menu-item {
+  position: relative;
+  display: block;
+  min-height: var(--gap-xl);
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  outline: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.pop-left-menu-item-header {
+  position: relative;
+  display:flex;
+  height: var(--gap-xl);
+  width: $open-width;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  clear: both;
+  border-left: 4px solid transparent;
+  transition: background-color 350ms, border-color 350ms;
+  border-left-width: var(--gap-xxs);
+  border-left-style: solid;
+  border-left-color: transparent;
+}
+
+.pop-left-menu-item-header-active {
+  border-left-width: var(--gap-xxs);
+  border-left-style: solid;
+  border-left-color: var(--primary-500) !important;
+  background-color: var(background-item-menu) !important;
+  height: var(--gap-xl);
+
+  span.mat-body{
+    font-weight: bold;
+  }
+}
+
+.pop-left-menu-label-container {
+  position: relative;
+  flex-grow: 1;
+  height: 40px;
+  padding: 12px 0 0 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+  text-align: left;
+  color: var(--text);
+}
+
+.pop-left-menu-icon-container {
+  position: relative;
+  width: 80px;
+  height: 40px;
+  padding-left: var(--gap-lm);
+  padding-right: var(--gap-s);
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+
+  .sw-circle-ID {
+    position: absolute;
+    top: 4px;
+  }
+}
+
+.pop-left-menu-item-header:hover {
+  background: var(--background-item-menu) !important;
+}
+
+.pop-left-menu-toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  padding: 10px 30px 30px 26px;
+  margin: 0 0 30px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  float: left;
+  bottom: 0;
+  border-radius: 50%;
+  background: transparent;
+}
+
+

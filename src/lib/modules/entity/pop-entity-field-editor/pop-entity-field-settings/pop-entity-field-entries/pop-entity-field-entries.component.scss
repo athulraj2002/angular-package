@@ -1,0 +1,120 @@
+@import "../../../../../assets/css/import/flex";
+@import "../../../../../assets/css/import/mar";
+@import "../../../../../assets/css/import/pad";
+@import "../../../../../assets/css/import/border";
+
+:host {
+  width: 100%;
+}
+
+.entity-field-value-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.entity-field-value-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 30px;
+  margin-bottom: 5px;
+  padding-top: var(--gap-s);
+  padding-bottom: var(--gap-s);
+}
+
+.entity-field-value-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+  font-size: .9em;
+  padding-top: 0px;
+  i {
+    font-size: 1.3em;
+  }
+}
+
+.entity-field-value-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  margin-top: 1px;
+}
+
+.field-entries-item {
+  //background: var(--background-base);
+}
+
+.field-entries-section-label {
+  min-height: 30px;
+}
+
+.entity-field-value-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.field-entries-sort {
+  display: flex;
+  width: 10%;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    //margin-top: var(--gap-xs);
+  }
+
+  cursor: move;
+}
+
+.entity-field-trait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 130px;
+  text-align: center;
+  min-height: 25px;
+}
+
+.entity-field-trait-radio {
+}
+
+:host ::ng-deep .entity-field-trait-checked.mat-icon {
+  color: var(--background-focused-button) !important;
+}
+
+//.cdk-drag-preview {
+//  box-sizing: border-box;
+//  border-radius: 4px;
+//  justify-content: center;
+//  align-items: center;
+//  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+//  0 8px 10px 1px rgba(0, 0, 0, 0.14),
+//  0 3px 14px 2px rgba(0, 0, 0, 0.12);
+//}
+
+//.cdk-drag-placeholder {
+//  opacity: .6;
+//  background: rgba(0, 0, 0, .1);
+//}
+
+//.cdk-drag-animating {
+//  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+//}
+
+:host ::ng-deep .entity-field-value-row .import-field-item-container {
+  margin: 0 !important;
+}
+
+:host ::ng-deep .cdk-drag-preview .import-field-item-container {
+  margin: 0 !important;
+}
+
+

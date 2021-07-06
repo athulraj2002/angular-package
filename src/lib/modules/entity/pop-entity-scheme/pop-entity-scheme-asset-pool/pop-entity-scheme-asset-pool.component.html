@@ -1,0 +1,50 @@
+<div class="entity-scheme-asset-pool-container" *ngIf="dom.state.loaded" [style.height.px]="dom.height.inner">
+  <div class="entity-scheme-asset-pool-search">
+    <mat-form-field class="sw-search" appearance="outline" color="accent">
+      <a matPrefix>
+        <mat-icon>search</mat-icon>
+      </a>
+      <mat-icon class="sw-pointer" matSuffix (click)="onUiSearchValueClear();">close
+      </mat-icon>
+      <input matInput [(ngModel)]="dom.session.searchValue" (keyup)="onApplyUiSearch($event.target.value, '')" placeholder="Search">
+    </mat-form-field>
+  </div>
+  <div class="entity-scheme-asset-pool-content" [style.height.px]=dom.height.content>
+    <mat-accordion multi="true" [displayMode]="'flat'">
+      <mat-expansion-panel class="mat-expansion-panel-first" *ngFor="let pool of ui.assetPool" [expanded]="dom.state[pool.name]?.expanded || this.dom.state['searching']" hideToggle="true">
+        <mat-expansion-panel-header>
+          <div class="entity-scheme-asset-pool-panel-header" (click)="$event.stopPropagation();">
+            <div class="entity-scheme-asset-pool-panel-expansion">
+              <mat-icon *ngIf="!dom.state[pool.name]?.expanded" (click)="onTogglePoolExpansion(pool);" [ngClass]="{'sw-hidden':this.dom.state['searching']}">
+                keyboard_arrow_right
+              </mat-icon>
+              <mat-icon *ngIf="dom.state[pool.name]?.expanded" (click)="onTogglePoolExpansion(pool);" [ngClass]="{'sw-hidden':this.dom.state['searching']}">
+                keyboard_arrow_down
+              </mat-icon>
+            </div>
+            <div class="entity-scheme-asset-pool-panel-name">{{pool.display}}</div>
+          </div>
+        </mat-expansion-panel-header>
+        <div *ngIf="!pool.list.length" class="theme-error">
+          None
+        </div>
+        <div class="entity-scheme-asset-pool-row"  *ngFor="let item of pool.list;" [ngClass]="{'sw-hidden': !this.dom.state[pool.asset_type]?.visible[item.id]}">
+          <div class="entity-scheme-asset-pool-row-container import-flex-column-xs">
+            <lib-pop-checkbox [config]="ui['assignableConfigs'][pool.asset_type][item.id]" (events)="onAssetPoolItemAttaching(pool.asset_type, item.id, $event.config.control.value)"></lib-pop-checkbox>
+          </div>
+
+          <div class="entity-scheme-asset-pool-row-container import-flex-column-md import-flex-grow-sm">
+            <div class="sw-pointer" [ngClass]="{'theme-accent':pool.asset_type === 'field'}" (click)="onViewEntityPortal(pool.asset_type, item.id);">{{item.name}}</div>
+          </div>
+          <div class="entity-scheme-asset-pool-row-container entity-scheme-asset-pool-type import-flex-column-sm" [ngSwitch]="pool.asset_type">
+            <div *ngSwitchCase="'field'">{{item.fieldgroup.label}}</div>
+            <div *ngSwitchCase="'component'">Component</div>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="entity-scheme-asset-pool-assign">
+    <lib-pop-button *ngFor="let section of ui.sections" class="entity-scheme-assign-btn" [config]="ui.assignBtnConfigs [section.position]" (events)="onSectionAttachingItems(section, $event);"></lib-pop-button>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+.pop-select-multi-container {
+  position: relative;
+  display: block;
+  padding: 0;
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+
+  ::ng-deep.mat-form-field-appearance-outline .mat-select-value {
+    //padding-right: 20px;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix .mat-select-arrow {
+    margin-top: 5px;
+  }
+
+  ::ng-deep .mat-select-arrow-wrapper {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.expand-to-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.pop-select-multi-feedback {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  width: 12px;
+  height: 20px;
+}
+
+.pop-select-multi-count {
+  position: absolute;
+  bottom: 1px;
+  right: -7px;
+  font-size: .7em;
+  text-align: right;
+  color: var(--text);
+}
+
+.pop-select-multi-helper {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+  font-size: .8em;
+}
+
+.pop-select-multi-error {
+  top: 1px;
+  position: relative;
+  font-size: .8em;
+  left: 4px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-select-value {
+  padding-right: 40px;
+}

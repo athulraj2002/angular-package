@@ -1,0 +1,24 @@
+<div class="pop-entity-input-field import-field-container">
+  <div *ngFor="let dataKey of field.data_keys; let i = index;  last as isLast">
+    <div *ngIf="field.items[dataKey].config; let items;" class="import-flex-column import-flex-item-full">
+      <div class="import-flex-row import-field-flex-row-offset">
+        <div class="import-field import-field-spacing import-flex-item-sm import-flex-grow-md" *ngIf="items['address']; let item;">
+          <lib-pop-input [config]="item" (events)="onFieldItemEvent($event, dataKey, 'address');"></lib-pop-input>
+        </div>
+
+        <div *ngIf="items['action']; let item;" class="pop-entity-email-btn-container">
+          <div class="import-field import-flex-item-icon">
+            <lib-pop-button
+              [config]="item"
+              (events)="onActionEvent($event, dataKey);"
+            ></lib-pop-button>
+          </div>
+        </div>
+
+      </div>
+      <div class="import-field-footer sw-mar-top-sm sw-pad-rgt-md" *ngIf="field.canRemove && isLast">
+        <lib-pop-field-btn class="sw-mar-rgt-sm" action="remove" [field]="field" (events)="onActionEvent($event, dataKey);"></lib-pop-field-btn>
+      </div>
+    </div>
+  </div>
+</div>

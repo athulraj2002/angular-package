@@ -1,0 +1,68 @@
+<div class="entity-field-item-settings-container" [style.height.px]=dom.height.outer>
+  <div class="entity-field-editor-section-wrapper">
+    <div class="field-builder-config-content" [style.height.px]="dom.height.outer">
+      <ng-container #container></ng-container>
+      <div class="field-builder-options-content" *ngIf="dom.state.showOptions" [style.maxHeight.px]="dom.height.inner">
+        <div class="field-builder-source-header">
+          <label>Options</label>
+          <lib-pop-button
+            *ngIf="dom.state.isOptionSource"
+            [config]="{value:'Reset', size: 24, text: 12, color: 'default', bubble: true, event: 'reset-source'}"
+            (events)="onOptionSourceReset($event);"
+          ></lib-pop-button>
+        </div>
+        <mat-divider *ngIf="dom.state.showOptions"></mat-divider>
+        <div class="field-builder-item-options-headers">
+          <div class="field-builder-item-options-sort">
+            Sort
+          </div>
+          <div class="field-builder-item-options-active">
+            Active
+          </div>
+          <div class="field-builder-item-name-input field-builder-mar-rgt">
+            <label>Name</label>
+          </div>
+          <div class="field-builder-item-value-input">
+            Value
+          </div>
+          <div class="field-builder-item-options-icon" [ngClass]="{'sw-hidden':dom.active.item?.options.enum}">
+            <i class="material-icons field-builder-item-options-new sw-pointer sw-hover" matTooltip="Add"
+               (click)="addFieldItemOption()">
+              add
+            </i>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="field-builder-item-options-loader">
+          <mat-progress-bar *ngIf="dom.state.saving" mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div class="field-builder-item-options-container" cdkDropList (cdkDropListDropped)="onOptionSortDrop($event)">
+          <div class="field-builder-item-options-headers" *ngFor="let option of dom.active.options; let i = index;" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".field-builder-item-options-container">
+            <div class="field-builder-item-options-sort" [ngClass]="{'sw-hidden':dom.active.item?.options.fixed}">
+              <i class="material-icons" cdkDragHandle>
+                drag_indicator
+              </i>
+            </div>
+            <div class="field-builder-item-options-active" [ngClass]="{'sw-hidden':dom.active.item?.options.fixed}">
+              <lib-pop-checkbox (events)="triggerSaveFieldOptions($event);" [config]="option.active"></lib-pop-checkbox>
+            </div>
+            <div class="field-builder-item-name-input field-builder-mar-rgt">
+              <lib-pop-input [config]="option.name" (events)="triggerSaveFieldOptions($event);"></lib-pop-input>
+            </div>
+            <div class="field-builder-item-value-input">
+              <lib-pop-input [config]="option.value" (events)="triggerSaveFieldOptions($event);"></lib-pop-input>
+            </div>
+            <div class="field-builder-item-options-icon" matTooltip="Remove" [ngClass]="{'sw-hidden':dom.active.item?.options.enum}">
+              <i class="material-icons field-builder-item-options-new sw-pointer sw-hover"
+                 (click)="removeFieldItemOption(i)">
+                remove
+              </i>
+            </div>
+            <div class="field-builder-item-options-headers" *cdkDragPreview></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

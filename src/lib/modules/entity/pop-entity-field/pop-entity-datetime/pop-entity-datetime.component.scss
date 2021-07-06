@@ -1,0 +1,88 @@
+:host {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.pop-datetime-container {
+  position: relative;
+  display: block;
+  padding: 0;
+  min-height: 40px;
+}
+
+.pop-datetime-container-wrapper {
+  border: 1px solid var(--darken4);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.pop-datetime-container-legend {
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: -5px;
+  clear: both;
+  z-index: 1;
+  width: fit-content;
+  color: var(--darken4);
+  background: var(--bg-3);
+}
+
+.pop-datetime-row-container {
+  position: relative;
+  display: flex;
+  flex: 1 1 100%;
+  margin-top: 10px;
+  padding: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: var(--bg-3);
+}
+
+.pop-datetime-first-row {
+  margin-top: 10px!important;
+}
+
+.pop-datetime-date-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  flex-grow: 1;
+  margin-right: 2px;
+}
+
+.pop-datetime-time-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 27%;
+  height: 31px;
+  flex-grow: 1;
+  margin-right: 2px;
+  border: 1px solid var(--text-2);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.pop-datetime-datetime-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  flex-grow: 1;
+  margin-right: 2px;
+}
+
+.pop-datetime-time-zone-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  flex-grow: 1;
+  margin-right: 2px;
+}
+
+

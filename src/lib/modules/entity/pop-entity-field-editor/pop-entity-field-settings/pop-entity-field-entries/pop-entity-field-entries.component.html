@@ -1,0 +1,114 @@
+<div class="entity-field-value-container" *ngIf="dom.state.loaded">
+  <div class="import-flex-row">
+    <div class="import-flex-column import-flex-item-md">
+      <!--<div class="import-flex-row import-field-border-btm import-flex-item-full">-->
+      <!--&lt;!&ndash;<div class="entity-field-value-label import-flex-item-md import-flex-grow-md">&ndash;&gt;-->
+      <!--&lt;!&ndash;Entries&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--<div class="import-flex-item-xs entity-field-value-icon import-flex-center">-->
+      <!--<i class="material-icons sw-pointer sw-hover"-->
+      <!--*ngIf="field.multiple"-->
+      <!--matTooltip="Add"-->
+      <!--[ngClass]="{'sw-disabled': dom.state.pending}"-->
+      <!--(click)="onAddEntryValue();">-->
+      <!--add-->
+      <!--</i>-->
+      <!--</div>-->
+      <!--</div>-->
+      <div class="entity-field-value-content" *ngIf="!field.multiple && ui.entries[0]; let entry;" [ngClass]="{'sw-disabled': dom.state.pending}">
+        <div class="entity-field-value-row" *ngIf="entry && entry.display">
+          <!--<div class="import-flex-item-xs entity-field-value-icon import-flex-center">-->
+          <!--<div>{{entry.increment}}.</div>-->
+          <!--</div>-->
+          <div class="import-flex-item-sm import-flex-grow-xs">
+            <lib-pop-input class="import-flex-item-full" [config]="entry.display" (events)="onEntryDisplayChange(0, $event)"></lib-pop-input>
+          </div>
+          <div class="import-flex-item-sm import-flex-grow-xs" [style.maxWidth.px]="100">
+            <!--<lib-pop-switch class="import-flex-item-full" [config]="entry.active" (events)="onEntryActiveChange(0, $event)"></lib-pop-switch>-->
+          </div>
+        </div>
+      </div>
+      <div class="entity-field-value-content import-flex-item-md" *ngIf="field.multiple" [ngClass]="{'sw-disabled': dom.state.pending}" cdkDropList (cdkDropListDropped)="onOptionSortDrop($event)">
+
+        <div class="import-flex-row import-flex-item-full import-flex-space-between-center field-entries-section-label">
+          <div class="import-flex-item-sm  import-flex-start-center">
+            <label>Entries</label>
+          </div>
+          <div class="import-flex-item-sm import-flex-grow-xs">
+          </div>
+          <div class="import-flex-item-sm import-flex-grow-xs import-flex-center" [style.maxWidth.px]="75">
+          </div>
+          <div class="import-flex-item-sm import-flex-grow-xs import-flex-center" [style.maxWidth.px]="30">
+            <i class="material-icons sw-pointer sw-hover"
+               matTooltip="Add Field Entry"
+               *ngIf="!dom.state.hasScheme"
+               [ngClass]="{'sw-disabled': dom.state.pending}"
+               (click)="onAddEntryValue();">
+              add
+            </i>
+          </div>
+        </div>
+
+        <div class="field-entries-item" *ngFor="let entry of ui.entries; let i = index; last as isLast" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".entity-field-value-content">
+          <div class="entity-field-value-row" *ngIf="entry && entry.display">
+            <div class="import-flex-item-xs entity-field-value-icon import-flex-center" [ngClass]="{'sw-hidden': !dom.state.hasMultipleEntries}" [style.maxWidth.px]="30">
+              <div>{{entry.increment}}.</div>
+            </div>
+            <div class="field-entries-sort" [ngClass]="{'sw-hidden': !dom.state.hasMultipleEntries || dom.state.hasScheme}" [style.maxWidth.px]="50">
+              <i class="material-icons" cdkDragHandle>
+                drag_indicator
+              </i>
+            </div>
+            <div class="import-flex-item-sm import-flex-grow-xs">
+              <lib-pop-input class="import-flex-item-full" [config]="entry.display" (events)="onEntryDisplayChange(i, $event)"></lib-pop-input>
+            </div>
+            <div class="import-flex-item-sm import-flex-grow-xs import-flex-center" [style.maxWidth.px]="75">
+              <lib-pop-switch [ngClass]="{'sw-hidden': !dom.state.hasMultipleEntries}" class="import-flex-item-full" [config]="entry.active" (events)="onEntryActiveChange(i, $event)"></lib-pop-switch>
+            </div>
+            <div class="import-flex-item-sm import-flex-grow-xs import-flex-center" [style.maxWidth.px]="30">
+              <i class="material-icons  sw-pointer sw-hover"
+                 [ngClass]="{'sw-hidden': !dom.state.hasMultipleEntries || dom.state.hasScheme}"
+                 matTooltip="Remove"
+                 (click)="onRemoveEntryValue(entry);">
+                remove
+              </i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="entity-field-value-content import-flex-item-md">
+      <div class="import-flex-row import-flex-item-md">
+        <div class="import-flex-column" *ngIf="dom.state.isPrimary">
+          <div class="import-flex-row import-flex-item-full import-flex-space-around-center field-entries-section-label">
+            <div class="import-flex-item-sm entity-field-trait" *ngFor="let trait of field.trait">
+              <label>{{trait.label}}</label>
+            </div>
+          </div>
+          <div class="entity-field-value-row import-flex-space-around-center field-entries-section-label" *ngFor="let entry of ui.entries; let i = index; last as isLast">
+            <div class="import-flex-item-sm entity-field-trait" *ngFor="let trait of entry.traits;">
+              <div class="entity-field-trait-radio">
+                <mat-icon [ngClass]="{'sw-hidden': trait.selected,'sw-disabled': trait.disabled,'sw-pointer': !trait.disabled}" (click)="onEntryTraitChange(i,trait)">
+                  radio_button_unchecked
+                </mat-icon>
+                <mat-icon class="entity-field-trait-checked" [ngClass]="{'sw-hidden': !trait.selected, 'sw-disabled': trait.disabled, 'sw-pointer': !trait.disabled}" (click)="onEntryTraitChange(i,trait)">
+                  radio_button_checked
+                </mat-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!--<div class="import-flex-row import-flex-item-full" *ngIf="field.multiple && field.custom_setting.edit_label">-->
+<!--<lib-pop-checkbox [config]="ui.editLabel"></lib-pop-checkbox>-->
+<!--</div>-->
+
+<!--<div class="import-flex-row import-flex-item-full" *ngIf="field.custom_setting.unique_label && field.setting.edit_label">-->
+<!--<lib-pop-checkbox [config]="ui.customLabel"></lib-pop-checkbox>-->
+<!--</div>-->

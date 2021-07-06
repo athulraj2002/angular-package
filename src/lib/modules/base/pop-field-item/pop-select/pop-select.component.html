@@ -1,0 +1,36 @@
+<div class="import-field-item-container pop-select-container pop-select-mode-{{this.config.mode}} "
+  [ngClass]="{'pop-select-container-minimal': this.config.minimal, 'pop-select-readonly': this.config.readonly, 'pop-select-opened-top': (dom.state.displayItems && !dom.state.displayBottom), 'pop-select-opened-bottom': (dom.state.displayItems && dom.state.displayBottom)}"
+  (libClickOutside)="onOutsideCLick();"
+>
+
+  <lib-pop-input
+    (click)="onSelectionClick($event)"
+    class="pop-select-faux"
+    *ngIf="ui?.selected?.config"
+    [config]=ui?.selected?.config
+    >
+  </lib-pop-input>
+
+<!--  <mat-form-field appearance="outline" class="pop-select-container-expansion" [title]="config?.tooltip" (click)="selectClick()">-->
+<!--    <mat-label *ngIf="config.label">{{config.label}}</mat-label>-->
+<!--&lt;!&ndash;    <div *ngIf="config.tooltip && config.showTooltip" class="pop-select-tooltip-msg" [innerHTML]=config.tooltip></div>&ndash;&gt;-->
+<!--    <mat-select anelClass="item-box"-->
+<!--      [formControl]="config?.control"-->
+<!--      (openedChange)="onOpenChange($event);">-->
+<!--&lt;!&ndash;      <div class="item-box"><mat-option class="items"  *ngFor="let option of config.options.values" [value]="option.value">{{option.name}}</mat-option></div>&ndash;&gt;-->
+<!--    </mat-select>-->
+
+<!--    <div class="pop-select-feedback" matSuffix *ngIf="!config.minimal">-->
+<!--      <lib-pop-field-item-error class="pop-select-error" [hidden]="!config.message" [message]="config.message"></lib-pop-field-item-error>-->
+<!--    </div>-->
+<!--    <lib-pop-field-item-helper class="pop-select-helper" [helpText]=config.helpText></lib-pop-field-item-helper>-->
+<!--  </mat-form-field>-->
+  <!--<a *ngIf="config.route && config.control.value" class="sw-pop-icon pop-select-goto-icon sw-pointer" (click)="link(); $event.stopPropagation();">M</a>-->
+
+  <lib-pop-field-item-loader [show]="config?.patch.displayIndicator && config?.patch.running"></lib-pop-field-item-loader>
+  <div [style.maxHeight.px]="config.height" [ngClass]="{'pop-select-items-box-bottom' : dom.state.displayBottom, 'pop-select-items-box-top': !dom.state.displayBottom}" *ngIf="dom.state.displayItems" [style.top]="optionsTopPos">
+    <div class="pop-select-items" *ngFor="let option of config?.options.values" (click)="onOptionSelected(option.value)"
+         [ngClass]="{'pop-select-level-1': option.level === 1, 'pop-select-level-2': option.level === 2}">{{option.name}}</div>
+  </div>
+</div>
+

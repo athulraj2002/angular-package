@@ -1,0 +1,6 @@
+<lib-main-spinner *ngIf="loading" [options]="mainSpinner"></lib-main-spinner>
+
+<h1 *ngIf="!loading && data.message && !httpError">{{data.message}} </h1>
+<h2 *ngIf="!loading && data.body && !httpError" class="dc-data-body"> {{data.body}} </h2>
+<h2 *ngIf="!loading && httpError">Error: {{httpError.code}} - {{httpError.error}}</h2>
+<button *ngIf="!loading && httpError" mat-raised-button (click)="close()">Close</button>

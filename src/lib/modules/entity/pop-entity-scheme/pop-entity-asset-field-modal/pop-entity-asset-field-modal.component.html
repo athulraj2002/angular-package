@@ -1,0 +1,127 @@
+<div class="entity-scheme-asset-container" *ngIf="dom.state.loaded" [style.height.px]="dom.height.inner">
+  <div class="entity-scheme-asset-header">
+    <div class="sw-label-container-sm">Edit Field</div>
+  </div>
+  <div class="entity-scheme-asset-row sw-mar-top-md">
+    <div class="entity-scheme-asset-divider sw-disabled">
+      <h4>{{ui.field.name}}</h4>
+      <!--<lib-pop-input class="sw-disabled" [config]="ui.name"></lib-pop-input>-->
+    </div>
+
+    <div class="entity-scheme-asset-divider"></div>
+  </div>
+  <div class="entity-scheme-asset-content">
+    <div class="entity-scheme-asset-section-wrapper">
+      <div class="entity-scheme-asset-header pt-02">
+        <div>Attributes</div>
+        <div class="entity-scheme-asset-item-label-helper">
+          <div class="sw-pop-icon entity-scheme-asset-section-header-helper-icon"
+               matTooltip="{{ui.field.fieldgroup.description}}"
+               matTooltipPosition="left">X
+          </div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="entity-scheme-asset-item sw-pointer" [ngClass]="{'entity-scheme-asset-active-selection':dom.active['item']?.id === item.id}" *ngFor="let item of ui.items" (click)="onActiveItemSelection(item);">
+        <div class="entity-scheme-asset-item-active-selector" (click)="$event.stopPropagation()">
+          <lib-pop-checkbox *ngIf="ui.activeConfigs[item.name]" [config]="ui.activeConfigs[item.name]" (events)="onItemStatusChange($event);"></lib-pop-checkbox>
+        </div>
+        <div class="entity-scheme-asset-item-label-name">{{item.name}}</div>
+        <div class="entity-scheme-asset-item-label-helper">
+          <div class="sw-pop-icon entity-scheme-asset-item-helper-icon"
+               matTooltip="{{item.display}}"
+               matTooltipPosition="left">X
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="entity-scheme-asset-section-wrapper">
+      <div class="entity-scheme-asset-header pt-02">
+        <div>{{dom.active.item?.name}} Settings</div>
+        <div class="entity-field-editor-item-label-helper">
+          <div class="sw-pop-icon entity-scheme-asset-section-header-helper-icon"
+               matTooltip="{{dom.active.item?.description}}"
+               matTooltipPosition="left">X
+          </div>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="entity-scheme-asset-setting-header" [ngClass]="{'sw-hidden': !dom.active.item?.options}">
+        <nav mat-tab-nav-bar>
+          <a mat-tab-link
+             *ngFor="let section of ui.sections"
+             (click)="onActiveItemSettingSectionSelection(section)"
+             [ngClass]="{'sw-hidden':!section.active}"
+             [active]="dom.active.section === section.id">
+            {{section.name}}
+          </a>
+        </nav>
+      </div>
+      <div class="entity-scheme-asset-setting-content entity-scheme-asset-setting-active-config">
+        <div class="entity-scheme-asset-setting-content" [ngClass]="{'sw-hidden':dom.active.section !== 'params' }" [style.height.px]="dom.height.content">
+          <ng-container libTemplateContainer></ng-container>
+        </div>
+
+        <div class="entity-scheme-asset-setting-content" [ngClass]="{'sw-hidden': dom.active.section !== 'options'}" [style.height.px]="dom.height.content">
+          <div class="entity-scheme-asset-setting-options-headers">
+            <div class="entity-scheme-asset-setting-options-sort">
+              Sort
+            </div>
+            <div class="entity-scheme-asset-setting-options-active">
+              Active
+            </div>
+            <div class="entity-scheme-asset-setting-options-input">
+              <label>Name</label>
+            </div>
+            <div class="entity-scheme-asset-setting-options-input">
+              Value
+            </div>
+            <div class="entity-scheme-asset-setting-options-icon ">
+              <!--<i class="material-icons entityId-scheme-asset-setting-options-new sw-pointer sw-hover" matTooltip="Add"-->
+              <!--(click)="addFieldItemOption()" [ngClass]="{'sw-hidden':dom.active.item?.options.enum}">-->
+              <!--add-->
+              <!--</i>-->
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="entity-scheme-asset-setting-options-container" cdkDropList (cdkDropListDropped)="onActiveItemOptionSortDrop($event)">
+            <div class="entity-scheme-asset-setting-options-headers" *ngFor="let option of dom.active.options; let i = index;" cdkDrag cdkDragLockAxis="y" cdkDragBoundary=".entity-scheme-asset-setting-options-container">
+              <div class="entity-scheme-asset-setting-options-sort">
+                <i class="entity-scheme-asset-handle material-icons" cdkDragHandle>drag_indicator</i>
+              </div>
+              <div class="entity-scheme-asset-setting-options-active">
+                <lib-pop-checkbox (events)="onSaveActiveItemOptions($event);" [config]="option.active"></lib-pop-checkbox>
+              </div>
+              <div class="entity-scheme-asset-setting-options-input sw-mar-rgt-md">
+                <lib-pop-input [config]="option.name"></lib-pop-input>
+              </div>
+              <div class="entity-scheme-asset-setting-options-input" [ngClass]="{'sw-disabled':dom.active.item?.options?.enum}">
+                <lib-pop-input [config]="option.value"></lib-pop-input>
+              </div>
+              <div class="entity-scheme-asset-setting-options-icon " matTooltip="Remove">
+                <!--<i class="material-icons entityId-scheme-asset-setting-options-new sw-pointer sw-hover"-->
+                <!--(click)="removeFieldItemOption(i)" [ngClass]="{'sw-hidden':dom.active.item.options.enum}">-->
+                <!--remove-->
+                <!--</i>-->
+              </div>
+              <div class="entity-scheme-asset-setting-options-headers" *cdkDragPreview></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="entity-scheme-asset-row entity-scheme-asset-buttons">
+    <!--<div class="in-pop-table-dialog-cancel">-->
+    <!--<button mat-raised-button (click)="onCancel();">Cancel</button>-->
+    <!--</div>-->
+
+    <div class="in-dialog-other">
+      <button mat-raised-button (click)="onModalClose()">Close</button>
+    </div>
+  </div>
+
+</div>

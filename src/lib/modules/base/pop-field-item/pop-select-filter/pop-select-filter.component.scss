@@ -1,0 +1,300 @@
+
+.pop-select-filter-container {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: var(--gap-s) 0;
+}
+
+.select-filter-button {
+  border: 1px solid var(--text-2);
+  border-radius: 0.25em;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+
+  .select-filter-button-left-items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .select-filter-button-bar {
+      width: 4px;
+      background-color: var(--background-base);
+      height: 100%;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .select-filter-button-text {
+      display: inline-block;
+      margin-left: var(--gap-sm);
+    }
+  }
+
+}
+
+.pop-select-search-header {
+  display: flex;
+  flex-direction: row;
+  min-height: 40px;
+  align-items: center;
+  justify-content: stretch;
+  border-bottom: 1px solid var(--border);
+}
+
+.sw-search {
+  display: flex;
+  flex-grow: 1;
+  margin-top: -20px;
+  .mat-form-field-flex {
+    display: flex;
+    flex-grow: 1;
+  }
+}
+
+.pop-select-filer-count {
+  position: absolute;
+  bottom: -5px;
+  right: 2px;
+  font-size: .7em;
+  text-align: right;
+}
+
+.select-filter-button-icon {
+  pointer-events: none;
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  top: var(--gap-s);
+  right: 7px;
+  color: var(--text-disabled);
+  outline: 0;
+}
+
+.select-filter-button:hover {
+  background-color: var(--background-base);
+  cursor: pointer;
+}
+
+.select-filter-items-above {
+  border: 1px solid var(--border);
+  position: absolute;
+  bottom: 47px;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  z-index: 3;
+  background-color: var(--background-base);
+  min-height: 30px;
+  border-radius: 5px;
+}
+
+.select-filter-items-below {
+  border: 1px solid var(--border);
+  position: relative;
+  top: 1px;
+  left: 0;
+  right: 0;
+  height: fit-content;
+  z-index: 3;
+  background-color: var(--background-base);
+  min-height: 30px;
+  border-radius: 3px;
+  z-index: 99;
+}
+
+.mat-form-field {
+  display: block;
+  height: 30px;
+}
+
+.pop-select-filter-option {
+  box-sizing: border-box;
+  background: var(--background-base);
+  height: 30px;
+}
+
+.expand-to-container {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  box-sizing: border-box !important;
+  -moz-box-sizing: border-box;
+}
+
+.pop-select-filter-feedback {
+  z-index: 3;
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-select-option-header {
+  display: flex;
+  flex-direction: row;
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  padding: 0;
+  justify-content: flex-start;
+  padding-left: var(--xs);
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: 0;
+  height: 30px;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  outline: 0;
+  background: var(--background-2);
+}
+
+.pop-select-option-header:hover {
+  background: var(--bg-1);
+}
+
+.pop-select-header-label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.pop-select-filter-active {
+  background: var(--background-2);
+}
+
+.select-filter-error {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  font-size: .8em;
+}
+
+:host ::ng-deep .checkbox-after {
+  direction: rtl;
+  .mat-checkbox-layout {
+    width: 100%;
+    .mat-checkbox-inner-container {
+      margin: 0 9px 0 auto;
+    }
+  }
+}
+
+:host ::ng-deep .mat-checkbox-inner-container {
+  margin: 0 0 0 var(--gap-sm);
+}
+
+:host ::ng-deep .mat-checkbox-label {
+  padding: 0 0 0 var(--gap-sm);
+}
+
+:host ::ng-deep .mat-list-item-content-reverse {
+  padding: 0 var(--gap-s) 0 var(--gap-xs) !important;
+}
+
+:host ::ng-deep mat-selection-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  outline: 0 !important;
+  padding-bottom: var(--gap-xs);
+}
+
+:host ::ng-deep mat-list-option {
+  border: none !important;
+}
+
+.pop-select-filter-option:hover {
+  background: var(--accent-shade);
+}
+
+.pop-select-filter-option:focus {
+  background: var(--accent-shade);
+}
+
+.pop-select-all-header:hover {
+  background: var(--bg-1);
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  padding: 8px 0 13px 0px !important;
+}
+
+:host ::ng-deep .pop-select-filter-values .mat-form-field-infix {
+  padding: 8px 40px 13px 0px !important;
+  pointer-events: none !important;
+}
+
+:host ::ng-deep .pop-select-filter-values input {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  z-index: 2;
+  padding-right: 40px;
+}
+
+:host ::ng-deep .pop-select-filter-values .mat-form-field-infix {
+  pointer-events: none !important;
+}
+
+:host ::ng-deep .pop-select-filter-single mat-pseudo-checkbox { // do not show checkboxes when not a multiple select
+  display: none !important;
+}
+
+:host ::ng-deep .pop-select-filter-single .mat-list-text { // do not need padding when not a multiple select
+  padding-left: 0 !important;
+}
+
+:host ::ng-deep .pop-select-option-header mat-checkbox {
+  margin-left: -1px !important;
+}
+
+:host ::ng-deep .pop-select-filter-single .sw-search {
+  padding-left: var(--gap-s);
+}
+
+:host ::ng-deep .pop-select-option-header .mat-checkbox-inner-container {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+:host ::ng-deep .pop-select-option-header .mat-checkbox-label {
+  padding: 0 var(--gap-s) 0 0;
+}
+
+:host ::ng-deep .filter-selected .pop-input-container {
+  //background-color: var(--bg-1) !important;
+}
+
+:host ::ng-deep .pop-input-container {
+  margin: 0 !important;
+}
+
+:host ::ng-deep .filter-option-selected .pop-input-container {
+  background-color: var(--accent-shade) !important;
+}
+
+:host ::ng-deep mat-list-base {
+  padding: 0 !important;
+}
+
+:host ::ng-deep .mat-list-text {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+

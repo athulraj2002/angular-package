@@ -1,0 +1,13 @@
+<div class="pop-entity-tab-section-bar-header">
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link
+       *ngFor="let section of sections"
+       (click)="onViewSection(section)"
+       [active]="dom.active.section === section.id">
+      {{section.name}}
+    </a>
+  </nav>
+</div>
+<div class="pop-entity-tab-section-bar-wrapper" [ngClass]="{'pop-entity-tab-section-bar-overflow': this.overflow}" [style.height.px]="dom.height.inner">
+  <ng-template #container></ng-template>
+</div>

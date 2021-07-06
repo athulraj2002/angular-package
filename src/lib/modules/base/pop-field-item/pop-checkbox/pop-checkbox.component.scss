@@ -1,0 +1,165 @@
+:host {
+  width: 100%;
+}
+
+.pop-checkbox-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 40px;
+}
+
+.pop-checkbox-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.pop-checkbox-sub-container {
+  display: flex;
+  flex-grow: 1;
+  max-width: calc(var(--field-max-width) - 40px);
+}
+
+.pop-checkbox-filler {
+  flex: 1;
+  flex-grow: 1;
+  min-width: 10px;
+  min-height: 35px;
+}
+
+.pop-checkbox-spacer {
+  width: 10px;
+  box-sizing: border-box;
+}
+
+.pop-checkbox-row {
+  display: flex;
+  padding-top: 2px;
+  flex-grow: 1;
+  margin-bottom: var(--gap-xxs);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.pop-checkbox-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 30px;
+  min-width: 30px;
+}
+
+:host ::ng-deep .pop-checkbox-has-label .pop-checkbox-row {
+  margin-top: var(--gap-xs)
+}
+
+//:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-label-after .pop-checkbox-row {
+//  margin-top: var(--gap-s) !important;
+//}
+
+:host ::ng-deep .pop-checkbox-has-label .mat-checkbox-layout {
+  flex-grow: 1 !important;
+}
+
+:host ::ng-deep .pop-checkbox-has-label .mat-checkbox-label {
+  flex-grow: 1 !important;
+}
+
+:host ::ng-deep .pop-checkbox-no-label .mat-checkbox-inner-container {
+  margin-left: 0;
+}
+
+.pop-checkbox-no-label {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+:host ::ng-deep .pop-checkbox-no-label .mat-checkbox-inner-container {
+  margin-left: 0;
+}
+
+:host ::ng-deep .pop-checkbox-no-label.position-left mat-checkbox {
+  float: left;
+}
+
+:host ::ng-deep .pop-checkbox-no-label.position-center mat-checkbox {
+  margin: auto;
+}
+
+:host ::ng-deep .pop-checkbox-no-label.position-right mat-checkbox {
+  float: right;
+}
+
+:host ::ng-deep .pop-checkbox-hover:hover {
+  background: var(--accent-shade) !important;
+}
+
+:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-label-before .pop-checkbox-label {
+  padding-right: var(--gap-xs);
+}
+
+:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-label-after .pop-checkbox-label {
+  padding-left: var(--gap-xs);
+  padding-right: var(--gap-xs);
+}
+
+:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-ellipsis-text .pop-checkbox-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-ellipsis-text .pop-checkbox-label > h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+:host ::ng-deep .pop-checkbox-has-label.pop-checkbox-wrap-text .pop-checkbox-label > h4 {
+  overflow-wrap: break-spaces !important;
+  word-wrap: break-spaces !important;
+  white-space: normal !important;
+}
+
+.pop-checkbox-helper {
+  position: relative;
+  top: 3px;
+  left: 0;
+  font-size: .7em;
+}
+
+.pop-checkbox-error {
+  position: relative;
+  top: 2px;
+  left: 2px;
+  z-index: 2;
+}
+
+:host ::ng-deep .pop-checkbox-error .mat-icon {
+  font-size: .9em;
+}
+
+.pop-checkbox-no-label-adjust {
+  margin-top: 1px;
+}
+
+.pop-checkbox-no-pointer {
+  pointer-events: none;
+}
+
+:host ::ng-deep h4 {
+  margin: 0;
+  flex: 1;
+}
+

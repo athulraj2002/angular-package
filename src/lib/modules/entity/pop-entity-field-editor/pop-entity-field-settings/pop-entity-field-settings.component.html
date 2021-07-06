@@ -1,0 +1,24 @@
+<div class="entity-field-editor-header" *ngIf="!this.dom.state.hasScheme">
+  <div class="entity-field-editor-header-section">
+    <div class="sw-label-container-sm">Field Attributes</div>
+  </div>
+  <div class="pop-entity-field-editor-header-section">
+    <p>Assign field value and attributes for this field.</p>
+  </div>
+</div>
+<div class="pop-entity-field-editor-settings-container">
+  <div #entries class="import-flex-row">
+    <lib-pop-entity-field-entries [core]="core" [field]="field" [scheme]="scheme"></lib-pop-entity-field-entries>
+  </div>
+
+  <mat-divider [style.width.%]=100 [style.marginBottom.px]=15></mat-divider>
+
+  <div class="import-flex-row" [style.maxHeight.px]="dom.height.outer">
+    <div class="import-flex-item-md import-flex-grow-md">
+      <lib-field-builder-items [core]="core" [scheme]="scheme"></lib-field-builder-items>
+    </div>
+    <div class="import-flex-item-md import-flex-grow-md">
+      <lib-field-builder-items-params [core]=core [scheme]="scheme"></lib-field-builder-items-params>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+@import "../pop-entity-field-editor";
+
+.entity-field-preview-container {
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.entity-field-preview-content{
+  padding: 0 var(--gap-s) var(--gap-s) var(--gap-s);
+}

@@ -1,0 +1,30 @@
+.entity-tab-menu-container {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.entity-tab-menu-container-margin{
+  margin: 25px;
+}
+
+.entity-tab-menu-loader {
+  position: absolute;
+  height: 2px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  clear: both;
+}
+
+.entity-tab-menu-spinner-box{
+  height: 75vh;
+}
+
+
+
+
+

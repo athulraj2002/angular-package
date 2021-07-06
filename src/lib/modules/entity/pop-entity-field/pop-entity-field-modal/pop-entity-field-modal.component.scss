@@ -1,0 +1,82 @@
+@import "../../../../assets/css/import/field-item";
+
+:host {
+  position: relative;
+  display: block;
+  min-width: 400px;
+
+  .pop-field-dialog-title {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .pop-field-dialog-fields {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    .pop-field-dialog-field {
+      margin-bottom: 10px;
+    }
+    .pop-field-dialog-field-lock {
+      opacity: 90%;
+    }
+    .pop-field-dialog-field-spinner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -22px;
+      margin-top: -40px;
+    }
+  }
+
+  .pop-field-dialog-buttons {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    .pop-field-dialog-cancel {
+      order: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 35px;
+      min-width: 100px;
+    }
+    .pop-field-dialog-other {
+      order: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 10px;
+      min-width: 100px;
+      min-height: 35px;
+    }
+  }
+
+  .pop-field-dialog-errors {
+    color: var(--warn);
+    text-align: center;
+    word-break: break-word;
+  }
+  .pop-field-dialog-success {
+    color: var(--success);
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .pop-field-dialog-message-layout {
+    display: flex;
+    flex-direction: row;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .pop-field-dialog-disabled {
+    pointer-events: none;
+  }
+
+}

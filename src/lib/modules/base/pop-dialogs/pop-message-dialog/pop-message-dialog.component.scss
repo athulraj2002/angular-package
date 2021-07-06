@@ -1,0 +1,26 @@
+.pop-confirmation-dialog-header {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .pop-confirmation-body {
+    margin: var(--gap-s) 0 var(--gap-lm) 0;
+    padding: var(--gap-m);
+    min-height: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: center;
+  }
+  
+  .pop-confirmation-dialog-footer {
+    display: flex;
+    min-height: var(--gap-m);
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .pop-confirmation-btn {
+    margin-left: var(--gap-s);
+  }
+  
+  

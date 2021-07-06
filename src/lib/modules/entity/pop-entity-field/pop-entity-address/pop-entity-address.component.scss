@@ -1,0 +1,90 @@
+.pop-entity-address-field {
+  position: relative;
+  min-height: 80px;
+  clear: both;
+  margin-top: 17px;
+
+}
+
+.pop-entity-address-readonly-container { // main wrapper around field items section
+  position: relative;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding-bottom: 5px;
+}
+
+.pop-entity-address-label-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 45px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pop-entity-address-label-title {
+  width: 30%;
+}
+
+.pop-entity-address-label-address {
+  word-wrap: break-word;
+  display: flex;
+  flex-grow: 1;
+  width: 60%;
+}
+
+.pop-entity-address-label-icon {
+  display: flex;
+  width: 10%;
+}
+
+.pop-entity-address-item-title {
+  width: 25%;
+}
+
+.pop-entity-address-item-address {
+  display: flex;
+  flex-grow: 1;
+  width: 70%;
+  flex-direction: column;
+}
+
+.pop-entity-address-item-icon {
+  display: flex;
+  flex-direction: row;
+  width: 5%;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+:host ::ng-deep .pop-entity-address-item-icon mat-icon {
+  font-size: .95em;
+}
+
+.pop-entity-address-item-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 5px;
+  min-height: 35px;
+}
+
+.pop-entity-address-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 5px;
+}
+
+.pop-entity-address-item {
+  font-size: .8em;
+  padding: 0 5px;
+}
+
+
+
+:host ::ng-deep lib-pop-field-item-loader{
+  top: 3rem !important;
+
+}

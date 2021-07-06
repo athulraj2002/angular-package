@@ -1,0 +1,35 @@
+.pop-error-redirect-container {
+  h1 {
+    font-size: 100px;
+    color: var(--error);
+  }
+}
+.error-container{
+  color: var(--text-2);
+  height: calc(100vh - 60px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .error-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    svg{
+      fill:var(--text-2);
+    }
+    mat-icon{
+      font-size: 5rem;
+    }
+    h1{
+      margin: 0;
+    }
+    .pop-error-main-text{
+      font-size: 4rem;
+      margin: var(--mar-md) 0;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+<div class="pop-select-modal-container import-field-item-container" *ngIf="dom.state.loaded">
+  <lib-pop-input class="pop-select-modal-values" (click)="onChangeOptions();" [config]="ui.anchorInput"></lib-pop-input>
+  <lib-pop-field-item-loader [show]="config.patch.displayIndicator && config.patch.running"></lib-pop-field-item-loader>
+</div>

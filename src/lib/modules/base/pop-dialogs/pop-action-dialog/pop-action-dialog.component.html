@@ -1,0 +1,39 @@
+<div [ngClass]="{'sw-hidden': !dom.state.loaded}" class="pop-action-close-btn sw-pointer" (click)="onFormCancel();">
+  <mat-icon>close</mat-icon>
+</div>
+<div class="pop-action-container" [ngClass]="{'sw-hidden': !dom.state.loaded}">
+  <div class="pop-action-dialog-header" *ngIf="ui.header">{{ui.header}}</div>
+  <div class="pop-action-dialog-content">
+    <form (keyup.enter)="onEnterPress($event);" [formGroup]="ui.form" [className]="dom.state.pending ? 'pop-action-dialog-field-lock' : ''">
+      <div class="import-flex-row">
+        <div class="import-flex-column-break" [ngClass]="{'sw-hidden': !dom.state.hasFields}">
+          <template #container></template>
+        </div>
+        <div class="pop-action-spacer" *ngIf="dom.state.hasFields && dom.state.hasComponent" [style.width.px]="20">
+
+        </div>
+        <div class="import-flex-column-break pop-action-portal-container" [ngClass]="{'sw-hidden': !dom.state.hasComponent}">
+          <ng-template [cdkPortalOutlet]></ng-template>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="pop-action-dialog-buttons">
+    <button class="pop-action-dialog-cancel" mat-raised-button (click)="onFormCancel();" [disabled]="dom.state.pending">
+      Cancel
+    </button>
+    <button class="pop-action-dialog-other" mat-raised-button color="accent" (click)="onFormSubmit()" [disabled]="!dom.state.validated || dom.state.pending">
+      <span *ngIf="!dom.state.pending">{{ui.submitText}}</span>
+      <div *ngIf="dom.state.pending">
+        <mat-spinner diameter="20"></mat-spinner>
+      </div>
+    </button>
+  </div>
+  <div class="pop-action-dialog-message-layout" *ngIf="dom.state.success || dom.error?.message" [@slideInOut]>
+    <div *ngIf="dom.state.success" class="pop-action-dialog-success" [innerHTML]=dom.state.success></div>
+    <div *ngIf="dom.error.message" class="pop-action-dialog-errors" [innerHTML]=dom.error.message></div>
+  </div>
+</div>
+<div class="pop-action-spinner-box" *ngIf="dom.state.loading">
+  <lib-main-spinner></lib-main-spinner>
+</div>

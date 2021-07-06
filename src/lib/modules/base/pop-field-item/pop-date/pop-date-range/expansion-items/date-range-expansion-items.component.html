@@ -1,0 +1,16 @@
+<lib-date-range-panel></lib-date-range-panel>
+<div class="example-header">
+  <span class="header-label mat-body" (click)="toggleCalView()">{{ periodLabel }} <mat-icon class="view-nav" >arrow_drop_down</mat-icon></span>
+  <button class="nav-button" mat-icon-button (click)="previousClicked('month')">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+
+  <button class="nav-button" mat-icon-button (click)="nextClicked('month')">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+
+</div>
+<div class="date-custom-footer">
+  <button id="datepicker-cancel" class="date-action-button" mat-raised-button>CANCEL</button>
+  <button id="datepicker-apply" mat-flat-button color="accent" >APPLY</button>
+</div>

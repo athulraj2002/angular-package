@@ -1,0 +1,43 @@
+.example-header {
+  display: flex;
+  align-items: center;
+  padding: var(--gap-m) var(--gap-m) 0 var(--gap-m);
+}
+
+.nav-button{
+
+  color: var(--foreground-disabled);
+}
+
+.view-nav{
+  position: relative;
+  top: 7px;
+}
+
+.header-label {
+
+  position: relative;
+  top: -5px;
+  flex: 1;
+  font-size: 14px;
+  color: var(--foreground-disabled);
+  text-align: left;
+  cursor: pointer;
+}
+
+.example-double-arrow .mat-icon {
+  color: var(--foreground-disabled);
+  margin: -22%;
+}
+
+.date-custom-footer{
+  position: relative;
+  top: 320px;
+  float: right;
+  padding-right: var(--gap-m);
+  // border: 1px solid grey;
+}
+
+.date-action-button{
+  margin-right: var(--gap-s);
+}

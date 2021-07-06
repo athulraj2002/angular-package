@@ -1,0 +1,26 @@
+.pcr-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: var(--gap-s) var(--gap-lm) var(--gap-lm) var(--gap-lm);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 200px;
+
+  mat-card {
+    width: 300px;
+  }
+
+  mat-card-title {
+    text-align: center;
+    margin-bottom: var(--gap-m) !important;
+  }
+
+  form {
+    margin: var(--gap-s) 0 !important;
+  }
+}
+.pcr-spinner-box{
+  height: 80vh;
+}

@@ -1,0 +1,9 @@
+<div class="entity-field-details-container" *ngIf="dom.state.loaded">
+  <lib-pop-entity-status [core]="core"></lib-pop-entity-status>
+  <lib-pop-entity-field-group [core]="core" (events)="onBubbleEvent($event);"></lib-pop-entity-field-group>
+  <lib-pop-switch *ngIf="ui.multiple" [config]="ui.multiple"></lib-pop-switch>
+  <lib-pop-switch *ngIf="!field.multiple && dom.repo.ui.customSetting.show_name" [config]="dom.repo.ui.customSetting.show_name.inputs.config"></lib-pop-switch>
+  <!--<lib-pop-switch *ngIf="!ui.field.multiple && ui.customSetting.show_name" [config]="ui.customSetting.show_name.inputs.config" (events)="onCustomSettingEvent($event)"></lib-pop-switch>-->
+  <!--<lib-pop-min-max *ngIf="ui.field.multiple" (events)="onMinMaxSetting($event);" [config]=ui.customSetting.minMax></lib-pop-min-max>-->
+
+</div>

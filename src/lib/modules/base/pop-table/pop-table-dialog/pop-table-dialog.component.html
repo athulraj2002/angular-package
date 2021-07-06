@@ -1,0 +1,93 @@
+<div>
+  <div>
+    <span class="mat-h3">Settings</span>
+
+    <div class="options-container">
+      <div class="options-column">
+        <div class="dialog-option" *ngIf="options.allowHeaderDisplayToggle">
+          <lib-pop-switch [config]="toggles?.allowHeaderDisplayToggle"
+                          (events)="handleToggleEvents($event)"></lib-pop-switch>
+        </div>
+
+        <div class="dialog-option" *ngIf="options.allowColumnSearchToggle && toggles.allowColumnSearchToggle"
+             [hidden]="!this.options.currentOptions.headerDisplay">
+          <lib-pop-switch [config]="toggles?.allowColumnSearchToggle"
+                          (events)="handleToggleEvents($event)"></lib-pop-switch>
+        </div>
+
+
+        <div class="dialog-option" *ngIf="options.allowColumnSortToggle"
+             [hidden]="!this.options.currentOptions.headerDisplay">
+          <lib-pop-switch [config]="toggles.allowColumnSortToggle"
+                          (events)="handleToggleEvents($event)"></lib-pop-switch>
+        </div>
+
+
+        <div class="dialog-option" *ngIf="options.allowHeaderStickyToggle"
+             [hidden]="!this.options.currentOptions.headerDisplay">
+          <lib-pop-switch [config]="toggles.allowHeaderStickyToggle"
+                          (events)="handleToggleEvents($event)"></lib-pop-switch>
+        </div>
+
+
+      </div>
+      <div style="flex: 1 1 auto;"></div>
+      <div >
+        <div class="dialog-option" style="overflow:hidden">
+          <button class="dialog-button" mat-raised-button (click)="onResetToDefault()" style="float: right">Reset to Default</button>
+        </div>
+        <div  class="dialog-option" style="width: 175px;" *ngIf="options.allowColumnStickyToggle">
+          <lib-pop-select [config]="lockedColumns" (events)="handleInputEvents($event)"></lib-pop-select>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="dialog-container" [style.maxHeight.px]=dom.height.outer>
+      <div class="dialog-options" [style.minHeight.px]=dom.height.inner>
+        <div class="dialog-draggable-header">
+          <div class="dialog-draggable-show">
+            <mat-checkbox (change)="setAllShow($event.checked)" color="accent"></mat-checkbox>
+          </div>
+          <div class="dialog-draggable-name">Column Label</div>
+
+          <!--          <div class="dialog-draggable-sticky">Sticky</div>-->
+          <div class="dialog-draggable-handle"></div>
+        </div>
+
+        <div cdkDropList class="dialog-draggable-columns" [style.maxHeight.px]=dom.height.inner
+             (cdkDropListDropped)="drop($event)">
+          <div class="dialog-draggable-column" *ngFor="let col of columns" cdkDrag cdkDragLockAxis="y"
+               cdkDragBoundary=".dialog-draggable-columns">
+            <mat-checkbox class="dialog-draggable-show" [(ngModel)]="col.visible" color="accent"></mat-checkbox>
+            <div class="dialog-draggable-name">{{col.display}}</div>
+
+            <!--            <mat-checkbox class="dialog-draggable-sticky" [(ngModel)]="col.sticky" color="accent" disabled="true"-->
+            <!--                          *ngIf="!options.allowColumnStickyToggle"></mat-checkbox>-->
+            <!--            <mat-checkbox class="dialog-draggable-sticky" [(ngModel)]="col.sticky" color="accent"-->
+            <!--                          *ngIf="options.allowColumnStickyToggle"></mat-checkbox>-->
+            <mat-icon class="dialog-draggable-handle" cdkDragHandle>drag_handle</mat-icon>
+          </div>
+        </div>
+      </div>
+      <!--      <div class="dialog-options" [style.minHeight.px]=dom.height.inner>-->
+      <!--        &lt;!&ndash; Display Header Option &ndash;&gt;-->
+
+
+      <!--        &lt;!&ndash;Paginator Option &ndash;&gt;-->
+      <!--        &lt;!&ndash;<div class="pop-table-dialog-option" *ngIf="options.allowPaginatorToggle">&ndash;&gt;-->
+      <!--        &lt;!&ndash;<lib-pop-switch [config]="toggles.allowPaginatorToggle" (events)="handleToggleEvents($event)"></lib-pop-switch>&ndash;&gt;-->
+      <!--        &lt;!&ndash;</div>&ndash;&gt;-->
+      <!--      </div>-->
+      <!--    </div>-->
+
+    </div>
+    <div class="dialog-buttons">
+      <button class="dialog-button" mat-raised-button (click)="onCancel()">Cancel</button>
+
+      <button class="dialog-button" mat-raised-button (click)="onSave()" color="accent">Save</button>
+    </div>
+
+  </div>
+
+</div>

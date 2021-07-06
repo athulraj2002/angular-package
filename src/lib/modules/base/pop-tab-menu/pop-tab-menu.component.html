@@ -1,0 +1,46 @@
+<div class="tab-menu-container" [style.height.px]="dom.height.outer" [ngClass]="{'tab-menu-loading': config.loading}">
+  <div class="mat-elevation-z2" [ngClass]="{'tab-menu-header': config?.goBack, 'tab-menu-header-without-back': !config?.goBack }" >
+    <div class="tab-menu-nav-container" >
+      <div class="tab-menu-back-container" *ngIf="config.goBack" >
+        <div id="back-button" class="tab-menu-back-btn"  (click)="onBackButtonClick();">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+          <div >Back</div>
+        </div>
+        <div *ngIf="config.buttons.length" class="tab-menu-button-container">
+          <button class="tab-menu-button"
+                  *ngFor="let button of config.buttons"
+                  [ngClass]="{'sw-hidden': button.hidden}"
+                  [disabled]="button.disabled"
+                  mat-raised-button
+                  (click)="onMenuButtonClick(button)">
+            {{button.name}}
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="tab-menu-button-header" >
+      <div class="tab-menu-label-container">{{config.name}}</div>
+
+    </div>
+    <div class="tab-menu-link-container">
+      <nav mat-tab-nav-bar>
+        <a mat-tab-link class="mat-body tab-menu-link"
+           *ngFor="let tab of config.tabs"
+           [routerLink]="tab.path"
+           [ngClass]="{'active':rla.isActive}"
+           (click)="onTabMenuClick(tab)"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{tab.name}}
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div #outlet class="sw-target-outlet tab-menu-router-outlet-container" [style.height.px]="dom.height.inner">
+    <div class="tab-menu-loader">
+      <mat-progress-bar *ngIf="config.loading" mode="indeterminate"></mat-progress-bar>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

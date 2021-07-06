@@ -1,0 +1,21 @@
+<div class="pop-template">
+  <header class="pop-template-header" #header *ngIf="displayMenu">
+    <lib-pop-menu></lib-pop-menu>
+  </header>
+  <section class="pop-template-section">
+    <aside class="pop-template-aside-left">
+      <lib-pop-left-menu [hidden]=!left [entityMenus]="menus"></lib-pop-left-menu>
+    </aside>
+    <div class="pop-template-main">
+      <lib-pop-cac-filter #filter></lib-pop-cac-filter>
+      <div class="sw-outlet-target pop-template-content-overflow">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <aside class="pop-template-aside-right">
+      <lib-pop-widget-bar  [hidden]=!right [widgets]="widgets"></lib-pop-widget-bar>
+    </aside>
+  </section>
+  <footer class="pop-template-footer"></footer>
+</div>
+

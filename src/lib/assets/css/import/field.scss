@@ -1,0 +1,55 @@
+.import-field {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+.import-field-wrapper-boundary {
+  padding: 0;
+}
+
+.import-field-container {
+  position: relative;
+  min-height: var(--field-min-height);
+  //z-index: 2;
+}
+
+.import-field-header {
+  display: flex;
+  flex-direction: row;
+  min-height: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  clear: both;
+  //z-index: 3;
+  margin-top:5px;
+}
+
+.import-field-header-title {
+  width: fit-content;
+  color: var(--current-color);
+}
+
+.import-field-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 20px;
+  width: 100%;
+  clear: both;
+  //z-index: 1;
+}
+
+.import-field-footer-adjust {
+  margin-top: -20px;
+}
+
+.import-field-flex-row-offset {
+  margin-right: var(--field-rgt-offset); // offset right-side margin of fields
+}
+
+.import-field-spacing {
+  //margin-top: $field-mar-top;
+  margin-right: var(--field-hrz-layout-mrg-rgt);
+}

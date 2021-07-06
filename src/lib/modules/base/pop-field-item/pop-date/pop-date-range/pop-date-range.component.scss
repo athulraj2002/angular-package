@@ -1,0 +1,161 @@
+$width: 200px;
+
+.disabled{
+  cursor: not-allowed !important;
+  color: var(--foreground-disabled) !important;
+}
+
+div.disabled{
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: var(--background-border);
+  }
+
+  ::ng-deep .mat-date-range-input-inner{
+    @extend .disabled;
+  }
+
+  mat-datepicker-toggle{
+    @extend .disabled;
+    ::ng-deep .mat-icon-button{
+      @extend .disabled;
+    }
+  }
+}
+
+div.ng-invalid {
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: red;
+  }
+}
+
+
+
+.pop-date-container {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: var(--gap-s) 0;
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+
+  //::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+  //  padding: 8px 20px 13px 0;
+  //}
+}
+
+.date-feedback-container {
+  position: absolute;
+  top: var(--gap=xxs);
+  right: var(--gap=xxs);
+  width: var(--gap-m);
+  bottom: var(--gap=xxs);
+  display: flex;
+  padding-top: 2px;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.date-clear-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 31px;
+  top: 6px;
+  z-index: 1;
+  font-size: 16px;
+}
+
+.date-toggle-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 10px;
+  top: 0px;
+  font-size: 16px;
+  z-index: 1;
+
+  ::ng-deep .mat-icon-button {
+    line-height: 25px !important;
+  }
+  ::ng-deep button {
+    width: 25px;
+    height: 25px;
+    mat-icon {
+      font-size: .9em;
+    }
+  }
+}
+
+.date-error-icon {
+  position: relative;
+  pointer-events: all;
+  left: 2px;
+  ::ng-deep .mat-icon {
+    font-size: 1em !important;
+  }
+}
+
+.date-helper-icon {
+  position: absolute !important;
+  width: 25px;
+  height: 25px;
+  right: 55px;
+  pointer-events: all;
+  font-size: 12px;
+  top:5px;
+  ::ng-deep .mat-icon {
+    font-size: 16px !important;
+  }
+}
+
+.date-ajax-spinner {
+  position: absolute;
+  z-index: 1;
+}
+
+.field-tooltip-msg {
+  position: absolute;
+  display: block;
+  bottom: 50px;
+  width: 100%;
+  right: -10px;
+  left: -10px;
+  background: #3D72EA !important;
+  border-radius: 0.25em;
+  padding: 0.75em;
+  z-index: 2;
+  color: white;
+  height: fit-content;
+  overflow: hidden;
+  text-align: center;
+}
+
+
+
+::ng-deep .expanded .mat-datepicker-content{
+  position: relative;
+  left: 200px;
+  border-radius: 0 !important;
+  height: 425px;
+  background: var(--background-base);
+  border-top: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+::ng-deep .mat-datepicker-content{
+
+  background: var(--background-base);
+  border: 1px solid lightgray;
+}

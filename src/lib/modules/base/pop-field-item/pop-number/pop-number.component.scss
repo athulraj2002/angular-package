@@ -1,0 +1,95 @@
+.pop-number-container {
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 8px 0px 13px 0;
+  }
+
+  ::ng-deep .pop-number-container-minimal .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 8px 0 13px 0;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper, .pop-number-container-minimal .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 0;
+    margin: 0 !important;
+  }
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-subscript-wrapper {
+    display: none;
+  }
+
+  ::ng-deep input[type=number] {
+    text-align: left;
+    min-width: 40px;
+    padding-right: 5px;
+  }
+}
+
+.pop-number-feedback-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -4px;
+  width: 20px;
+  height: 20px;
+}
+
+.pop-number-error-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 5px;
+  font-size: .8em;
+  width: 20px;
+  height: 20px;
+}
+
+.pop-number-helper-icon {
+  position: relative;
+  font-size: .8em;
+  top:3px;
+  z-index: 2;
+}
+
+.pop-number-select-icon {
+  position: absolute;
+  z-index: 2;
+  margin-top: 3px;
+  color: var(--text-disabled);
+}
+
+.pop-number-ajax-spinner {
+  position: absolute;
+  z-index: 1;
+}
+
+.pop-number-tooltip-background {
+
+}
+
+
+
+.pop-number-container-tooltip-adjust {
+  padding-top: 45px;
+}
+
+.pop-number-tooltip-container {
+  position: absolute;
+  display: block;
+  right: 0;
+  left: 0;
+  top: 0;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 0.25em;
+  padding: 0.75em;
+  z-index: 2;
+  color: var(--primary-text);
+  height: fit-content;
+  overflow: hidden;
+  text-align: center;
+}
+
+:host ::ng-deep .pop-number-minimal .mat-form-field-infix {
+  padding-right: 2px !important;
+}
